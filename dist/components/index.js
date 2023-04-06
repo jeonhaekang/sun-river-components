@@ -1,17 +1,17 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _MyComponent = require("./MyComponent");
-Object.keys(_MyComponent).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _MyComponent[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _MyComponent[key];
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
     }
-  });
-});
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfTXlDb21wb25lbnQiLCJyZXF1aXJlIiwiT2JqZWN0Iiwia2V5cyIsImZvckVhY2giLCJrZXkiLCJleHBvcnRzIiwiZGVmaW5lUHJvcGVydHkiLCJlbnVtZXJhYmxlIiwiZ2V0Il0sInNvdXJjZXMiOlsiLi4vLi4vc3JjL2NvbXBvbmVudHMvaW5kZXgudHMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSBcIi4vTXlDb21wb25lbnRcIjtcbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxJQUFBQSxZQUFBLEdBQUFDLE9BQUE7QUFBQUMsTUFBQSxDQUFBQyxJQUFBLENBQUFILFlBQUEsRUFBQUksT0FBQSxXQUFBQyxHQUFBO0VBQUEsSUFBQUEsR0FBQSxrQkFBQUEsR0FBQTtFQUFBLElBQUFBLEdBQUEsSUFBQUMsT0FBQSxJQUFBQSxPQUFBLENBQUFELEdBQUEsTUFBQUwsWUFBQSxDQUFBSyxHQUFBO0VBQUFILE1BQUEsQ0FBQUssY0FBQSxDQUFBRCxPQUFBLEVBQUFELEdBQUE7SUFBQUcsVUFBQTtJQUFBQyxHQUFBLFdBQUFBLElBQUE7TUFBQSxPQUFBVCxZQUFBLENBQUFLLEdBQUE7SUFBQTtFQUFBO0FBQUEifQ==
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(require("./MyComponent"), exports);

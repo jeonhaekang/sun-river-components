@@ -1,19 +1,23 @@
 {
-  "name": "kkangs-components",
-  "version": "1.0.1",
-  "description": "",
+  "name": "@sun-river/components",
+  "version": "0.0.1",
+  "description": "react components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc && babel src --out-dir dist --extensions '.ts,.tsx' --source-maps inline",
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "Jeon Hae Kang",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.21.0",
@@ -34,6 +38,21 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.2",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "^13.0.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-json-format": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.8.4"
   }
 }
