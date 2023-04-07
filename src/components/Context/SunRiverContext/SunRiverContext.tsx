@@ -1,4 +1,6 @@
+import { ThemeProvider } from "@emotion/react";
 import { GlobalCSS } from "@styles/GlobalCSS";
+import { theme } from "@styles/theme";
 import type { PropsWithChildren } from "react";
 import { createContext } from "react";
 
@@ -8,7 +10,7 @@ export const SunRiverProvider = ({ children }: PropsWithChildren) => {
   return (
     <SunRiverContext.Provider value={null}>
       <GlobalCSS />
-      {children}
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </SunRiverContext.Provider>
   );
 };
