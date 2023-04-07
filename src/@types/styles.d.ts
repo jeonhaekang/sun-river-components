@@ -1,10 +1,13 @@
 declare module Styles {
   type Size = typeof import("~/styles").size;
-  type SizeKeyType = keyof Size;
+  type SizeKey = keyof Size;
 
-  type ColorType = typeof import("~/styles").colors;
-  type ColorKeyType = keyof ColorType;
+  type Colors = typeof import("~/styles").colors;
+  type ColorsKey = keyof Colors;
 
-  type PalettesType = typeof import("~/styles").palettes;
-  type PalettesKeyType = keyof PalettesType;
+  type Palettes = typeof import("~/styles").palettes;
+  type PalettesKey = keyof Palettes;
+
+  type FontSize = typeof import("~/styles").fontSize;
+  type FontSizeKey = keyof FontSize;
 }

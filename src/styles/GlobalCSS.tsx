@@ -128,6 +128,33 @@ export const GlobalCSS = () => {
           border-collapse: collapse;
           border-spacing: 0;
         }
+        a {
+          text-decoration: none;
+          cursor: pointer;
+          color: inherit;
+        }
+
+        input {
+          outline: none;
+          border: none;
+        }
+
+        input[type="checkbox"] {
+          cursor: pointer;
+        }
+
+        button {
+          background-color: transparent;
+          cursor: pointer;
+          padding: 0;
+          margin: 0; // ios default css
+          border: none;
+
+          &:disabled,
+          &[data-disabled="disabled"] {
+            cursor: not-allowed;
+          }
+        }
       `}
     />
   );
