@@ -52,6 +52,7 @@
     "no-underscore-dangle": 0,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "react/no-unknown-property": ["error", { "ignore": ["css"] }]
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "@typescript-eslint/consistent-type-imports": "off"
   }
 }
