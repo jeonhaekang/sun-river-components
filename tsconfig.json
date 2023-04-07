@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "declaration": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],

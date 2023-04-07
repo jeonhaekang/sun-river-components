@@ -1,4 +1,4 @@
-import { GlobalCSS } from "@styles/index";
+import { GlobalCSS } from "@styles/GlobalCSS";
 import type { PropsWithChildren } from "react";
 import { createContext } from "react";
 
