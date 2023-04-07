@@ -9,7 +9,13 @@
     "strict": true,
     "esModuleInterop": true,
     "declaration": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"]
+    }
   },
   "exclude": ["src/stories/**/*.ts", "src/stories/**/*.tsx"]
 }
