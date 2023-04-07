@@ -1,8 +1,7 @@
 import { ThemeProvider } from "@emotion/react";
-import { GlobalCSS } from "@styles/GlobalCSS";
-import { theme } from "@styles/theme";
 import type { PropsWithChildren } from "react";
 import { createContext } from "react";
+import { GlobalCSS, theme } from "~/styles";
 
 const SunRiverContext = createContext(null);
 

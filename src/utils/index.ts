@@ -1,1 +1,1 @@
-export * from "./getObjectProperties";
+export * from "./common";

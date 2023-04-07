@@ -13,9 +13,7 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "~/*": ["./*"]
     }
-  },
-  "exclude": ["src/stories/**/*.ts", "src/stories/**/*.tsx"]
+  }
 }
