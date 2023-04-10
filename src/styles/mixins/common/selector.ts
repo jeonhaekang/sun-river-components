@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { CSSProperties } from "react";
 import { toKebabCase } from "~/utils";
 
-const CSSSelector = ["hover", "active", "disabled", "enabled"] as const;
+const CSSSelector = ["hover", "active", "focus"] as const;
 
 export type CSSSelectorOptions<CSSProperty extends keyof CSSProperties> = {
   [CSSSelector in (typeof CSSSelector)[number]]?: CSSProperties[CSSProperty];
@@ -26,6 +26,8 @@ export const getSelectorStyle = (
   );
 
   return css`
-    ${selectorStyle}
+    &:not(:disabled) {
+      ${selectorStyle}
+    }
   `;
 };
