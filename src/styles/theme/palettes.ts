@@ -3,15 +3,17 @@ export const blue = {
   hover: "#339dff",
   pressed: "#1272cc",
   border: "#cce7ff",
-  background: "#e5f3ff"
+  background: "#e5f3ff",
+  focused: "0px 0px 2px 2px rgba(0, 133, 255, 0.15)"
 } as const;
 
 export const green = {
   base: "#00ba34",
-  hover: "#f89e32",
+  hover: "#33c85d",
   pressed: "#00952a",
   border: "#ccf1d6",
-  background: "#e5f8eb"
+  background: "#e5f8eb",
+  focused: "0px 0px 2px 2px rgba(0, 186, 52, 0.15)"
 } as const;
 
 export const orange = {
@@ -19,7 +21,8 @@ export const orange = {
   hover: "#f89e32",
   pressed: "#c76b00",
   border: "#fde7cc",
-  background: "#fef6e8"
+  background: "#fef6e8",
+  focused: "0px 0px 2px 2px rgba(233, 44, 44, 0.15)"
 } as const;
 
 export const red = {
@@ -27,7 +30,8 @@ export const red = {
   hover: "#ed5656",
   pressed: "#ba2323",
   border: "#fbd5d5",
-  background: "#fdebeb"
+  background: "#fdebeb",
+  focused: "0px 0px 2px 2px rgba(249, 134, 0, 0.15)"
 } as const;
 
 const palettes = {
