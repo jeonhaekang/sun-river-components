@@ -1,4 +1,3 @@
-import { SunRiverProvider } from "@components/Context";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 import { palettes, size } from "~/styles";
@@ -19,13 +18,7 @@ const meta = {
       options: getObjectKeys(palettes)
     }
   },
-  decorators: [
-    Story => (
-      <SunRiverProvider>
-        <Story />
-      </SunRiverProvider>
-    )
-  ]
+  decorators: [Story => <Story />]
 } satisfies Meta<typeof Button>;
 
 const defaultArgs: ComponentProps<typeof Button> = {
