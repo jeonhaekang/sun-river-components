@@ -15,15 +15,15 @@ export const setBackgroundColor = (
     }
 
     &:active {
-      ${hover && `background-color: ${active}`}
+      ${active && `background-color: ${active}`}
     }
 
     &:disabled {
-      ${hover && `background-color: ${disabled}`}
+      ${disabled && `background-color: ${disabled}`}
     }
 
     &:enabled {
-      ${hover && `background-color: ${enabled}`}
+      ${enabled && `background-color: ${enabled}`}
     }
   `;
 };
