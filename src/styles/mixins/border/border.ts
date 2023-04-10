@@ -6,9 +6,9 @@ export const setBorder = ({
   width = "1px",
   color = theme.colors.black,
   style = "solid",
-  radius = 0,
+  radius,
   direction
-}: SetBorderProps) => {
+}: SetBorderProps = {}) => {
   const border = `${width} ${style} ${color}`;
 
   return css`
