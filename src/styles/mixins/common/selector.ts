@@ -4,7 +4,7 @@ import { toKebabCase } from "~/utils";
 
 const CSSSelector = ["hover", "active", "disabled", "enabled"] as const;
 
-type CSSSelectorOptions<CSSProperty extends keyof CSSProperties> = {
+export type CSSSelectorOptions<CSSProperty extends keyof CSSProperties> = {
   [CSSSelector in (typeof CSSSelector)[number]]?: CSSProperties[CSSProperty];
 };
 
