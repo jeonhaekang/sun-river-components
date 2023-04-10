@@ -1,7 +1,8 @@
 import type { ButtonHTMLAttributes } from "react";
+import { PalettesKey, SizeKey } from "~/styles";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  size?: Styles.SizeKey;
-  color?: Styles.PalettesKey;
+  size?: SizeKey;
+  color?: PalettesKey;
 }
