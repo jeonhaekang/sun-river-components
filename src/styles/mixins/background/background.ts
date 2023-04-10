@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
+import { CSSProperties } from "react";
 import { CSSSelectorOptions, getSelectorStyle } from "~/styles";
-import { BackgroundColor } from "./background.types";
 
 export const setBackgroundColor = (
-  defaultColor: BackgroundColor,
+  defaultColor: CSSProperties["backgroundColor"],
   selectorStyleOptions: CSSSelectorOptions<"backgroundColor"> = {}
 ) => {
   return css`

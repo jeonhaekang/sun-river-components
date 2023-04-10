@@ -7,7 +7,3 @@ export interface SetBorderProps {
   style?: CSSProperties["borderStyle"];
   direction?: "top" | "bottom" | "left" | "right";
 }
-
-export type BorderColorOptions = {
-  [CSSSelector in Styles.CSSSelector]?: CSSProperties["borderColor"];
-};
