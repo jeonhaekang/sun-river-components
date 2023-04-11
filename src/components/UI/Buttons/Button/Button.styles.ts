@@ -1,6 +1,13 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { setTypography } from "~/styles";
-import { ButtonProps } from "./Button.types";
+import {
+  setBackgroundColor,
+  setBorder,
+  setColor,
+  setTypography,
+  theme
+} from "~/styles";
+import { ButtonPropsWithoutLabel } from "./Button.types";
 
 const typographyMap = {
   large: "heading4",
@@ -14,17 +21,75 @@ const paddingMap = {
   small: 8
 } as const;
 
-export const Button = styled.button<Omit<ButtonProps, "label">>`
-  height: ${({ theme, size = "medium" }) => theme.size[size]}px;
+const getBaseStyle = ({ size = "medium" }: ButtonPropsWithoutLabel) => {
+  return css`
+    height: ${theme.size[size]}px;
 
-  padding: 0 ${({ size = "medium" }) => paddingMap[size]}px;
+    padding: 0 ${paddingMap[size]}px;
 
-  background-color: ${({ theme, color = "blue" }) =>
-    theme.palettes[color].base};
+    ${setTypography(typographyMap[size])};
 
-  border: 0;
-  border-radius: 8px;
+    &:disabled {
+      opacity: ${theme.opacity.disabled};
+    }
 
-  ${({ size = "medium" }) => setTypography(typographyMap[size])};
-  color: ${({ theme }) => theme.colors.white};
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+  `;
+};
+
+const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
+  const { base, hover, active } = theme.palettes[color];
+
+  return css`
+    ${setBackgroundColor(base, { hover, active })}
+
+    ${setBorder({ width: 0, radius: "8px" })}
+
+    ${setColor(theme.colors.white)}
+
+    box-shadow: ${theme.effect.shadow.drop2};
+  `;
+};
+
+const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
+  const { base, hover, active } = theme.palettes[color];
+
+  return css`
+    ${setBackgroundColor(theme.colors.white)}
+
+    ${setBorder({ color: base, radius: "8px" }, { hover, active })}
+
+    ${setColor(base, { hover, active })}
+
+    box-shadow: ${theme.effect.shadow.drop1};
+  `;
+};
+
+const getTextStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
+  const { base, hover, active } = theme.palettes[color];
+
+  return css`
+    ${setBackgroundColor("transparent")}
+
+    ${setBorder({ width: 0 })}
+
+    ${setColor(base, { hover, active })}
+  `;
+};
+
+export const Button = styled.button<ButtonPropsWithoutLabel>`
+  ${props => getBaseStyle(props)};
+
+  ${props => {
+    switch (props.variant) {
+      case "outline":
+        return getOutlineStyle(props);
+      case "text":
+        return getTextStyle(props);
+      default:
+        return getDefaultStyle(props);
+    }
+  }}
 `;

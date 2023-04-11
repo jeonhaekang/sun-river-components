@@ -1,6 +1,5 @@
 import type { Preview } from "@storybook/react";
 import React from "react";
-import { SunRiverProvider } from "../src/components/Context";
 
 const preview: Preview = {
   parameters: {
@@ -12,13 +11,7 @@ const preview: Preview = {
       }
     }
   },
-  decorators: [
-    Story => (
-      <SunRiverProvider>
-        <Story />
-      </SunRiverProvider>
-    )
-  ]
+  decorators: [Story => <Story />]
 };
 
 export default preview;
