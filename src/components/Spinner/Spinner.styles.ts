@@ -21,7 +21,7 @@ const getDefaultStyle = ({
   color = "blue",
   speed = "normal"
 }: SpinnerProps) => {
-  const spinnerSize = theme.size[size] - 8;
+  const spinnerSize = theme.size[size] - 12;
 
   return css`
     ${setSize(spinnerSize, spinnerSize)}
