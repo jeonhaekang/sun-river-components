@@ -12,7 +12,8 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "serve-storybook": "serve storybook-static"
   },
   "keywords": [
     "react",
@@ -41,9 +42,11 @@
     "@storybook/addon-interactions": "^7.0.2",
     "@storybook/addon-links": "^7.0.2",
     "@storybook/blocks": "^7.0.2",
+    "@storybook/manager-api": "^7.0.3",
     "@storybook/react": "^7.0.2",
     "@storybook/react-webpack5": "^7.0.2",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/theming": "^7.0.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.44.0",

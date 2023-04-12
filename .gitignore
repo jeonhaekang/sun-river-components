@@ -3,6 +3,7 @@
 # dependencies
 **/node_modules
 /dist
+/storybook-static
 /.pnp
 .pnp.js
 
