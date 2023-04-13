@@ -19,11 +19,11 @@ export const flex = ({
   `;
 };
 
-const column = (props: Omit<FlexProps, "direction">) => {
+const column = (props: Omit<FlexProps, "direction"> = {}) => {
   return flex({ ...props, direction: "column" });
 };
 
-const center = (props: Omit<FlexProps, "align" | "justify">) => {
+const center = (props: Omit<FlexProps, "align" | "justify"> = {}) => {
   return flex({ ...props, align: "center", justify: "center" });
 };
 
