@@ -32,7 +32,8 @@ export const Default: Story = {
     variant: "default",
     color: "blue",
     size: "medium",
-    disabled: false
+    disabled: false,
+    isLoading: false
   }
 };
 

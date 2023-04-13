@@ -1,33 +1,29 @@
+import { spinner } from "@components/Spinner";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
+  ColorsKey,
+  flex,
+  position,
   setBackgroundColor,
   setBorder,
   setColor,
+  setSize,
   setTypography,
   theme
 } from "~/styles";
+import { buttonPaddingMap, buttonTypographyMap } from "./Button.constants";
 import { ButtonPropsWithoutLabel } from "./Button.types";
-
-const typographyMap = {
-  large: "heading4",
-  medium: "heading5",
-  small: "heading6"
-} as const;
-
-const paddingMap = {
-  large: 16,
-  medium: 12,
-  small: 8
-} as const;
 
 const getBaseStyle = ({ size = "medium" }: ButtonPropsWithoutLabel) => {
   return css`
+    position: relative;
+
     height: ${theme.size[size]}px;
 
-    padding: 0 ${paddingMap[size]}px;
+    padding: 0 ${buttonPaddingMap[size]}px;
 
-    ${setTypography(typographyMap[size])};
+    ${setTypography(buttonTypographyMap[size])};
 
     &:disabled {
       opacity: ${theme.opacity.disabled};
@@ -92,4 +88,31 @@ export const Button = styled.button<ButtonPropsWithoutLabel>`
         return getDefaultStyle(props);
     }
   }}
+`;
+
+export const ButtonSpinner = styled.span<ButtonPropsWithoutLabel>`
+  ${setSize("100%", "100%")}
+
+  ${position.absolute({ left: 0, top: 0 })}
+
+  ${flex.center()}
+
+  &::before {
+    content: "";
+
+    ${({ variant, color = "blue" }) => {
+      let spinnerColor: ColorsKey;
+
+      switch (variant) {
+        case "outline":
+        case "text":
+          spinnerColor = color;
+          break;
+        default:
+          spinnerColor = "white";
+      }
+
+      return spinner({ color: spinnerColor });
+    }}
+  }
 `;

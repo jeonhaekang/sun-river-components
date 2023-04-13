@@ -6,6 +6,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   size?: SizeKey;
   color?: PalettesKey;
+  isLoading?: boolean;
 }
 
 export type ButtonPropsWithoutLabel = Omit<ButtonProps, "label">;

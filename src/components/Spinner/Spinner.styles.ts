@@ -4,7 +4,7 @@ import { setBorder, setSize, theme } from "~/styles";
 import { spinnerSpeedMap, spinnerWidthMap } from "./Spinner.constants";
 import { SpinnerProps } from "./Spinner.types";
 
-const getDefaultStyle = ({
+export const spinner = ({
   size = "medium",
   width = "normal",
   color = "blue",
@@ -13,6 +13,15 @@ const getDefaultStyle = ({
   const spinnerSize = theme.size[size] - 12;
 
   return css`
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
     ${setSize(spinnerSize, spinnerSize)}
 
     ${setBorder({
@@ -20,6 +29,7 @@ const getDefaultStyle = ({
       radius: "50%",
       color: theme.colors[color]
     })}    
+    border-bottom-color: transparent;
 
     animation: rotation ${spinnerSpeedMap[speed]}ms linear infinite;
 
@@ -28,16 +38,5 @@ const getDefaultStyle = ({
 };
 
 export const Spinner = styled.span<SpinnerProps>`
-  ${props => getDefaultStyle(props)};
-
-  border-bottom-color: transparent;
-
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  ${props => spinner(props)};
 `;
