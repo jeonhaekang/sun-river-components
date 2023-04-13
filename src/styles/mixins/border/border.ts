@@ -7,13 +7,13 @@ export const setBorder = (
   selectorStyleOptions: CSSSelectorOptions<"borderColor"> = {}
 ) => {
   const {
-    width = "1px",
+    width = 1,
     color = theme.colors.black,
     style = "solid",
     radius,
     direction
   } = options;
-  const border = `${width} ${style} ${color}`;
+  const border = `${width}px ${style} ${color}`;
 
   return css`
     ${direction ? `border-${direction}: ${border};` : `border: ${border};`}

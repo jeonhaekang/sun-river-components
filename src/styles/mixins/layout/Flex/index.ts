@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { unitToPx } from "../../common";
 import { FlexProps } from "./Flex.types";
 
 export const flex = ({
@@ -14,7 +15,7 @@ export const flex = ({
     direction: ${direction};
     align-items: ${align};
     justify-content: ${justify};
-    ${gap && `gap: ${gap}px;`};
+    ${unitToPx("gap", gap)};
   `;
 };
 
