@@ -16,7 +16,7 @@ const getDefaultStyle = ({
     ${setSize(spinnerSize, spinnerSize)}
 
     ${setBorder({
-      width: `${spinnerWidthMap[width]}px`,
+      width: spinnerWidthMap[width],
       radius: "50%",
       color: theme.colors[color]
     })}    
