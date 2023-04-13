@@ -1,7 +1,7 @@
 const size = {
-  large: 52,
+  small: 28,
   medium: 40,
-  small: 28
+  large: 52
 } as const;
 
 export default size;

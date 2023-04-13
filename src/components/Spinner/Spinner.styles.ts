@@ -1,19 +1,8 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { setBorder, setSize, theme } from "~/styles";
+import { spinnerSpeedMap, spinnerWidthMap } from "./Spinner.constants";
 import { SpinnerProps } from "./Spinner.types";
-
-const widthMap = {
-  bold: 3,
-  normal: 2,
-  thin: 1
-} as const;
-
-const speedMap = {
-  fast: 400,
-  normal: 700,
-  slow: 1000
-} as const;
 
 const getDefaultStyle = ({
   size = "medium",
@@ -27,12 +16,12 @@ const getDefaultStyle = ({
     ${setSize(spinnerSize, spinnerSize)}
 
     ${setBorder({
-      width: `${widthMap[width]}px`,
+      width: `${spinnerWidthMap[width]}px`,
       radius: "50%",
       color: theme.colors[color]
     })}    
 
-    animation: rotation ${speedMap[speed]}ms linear infinite;
+    animation: rotation ${spinnerSpeedMap[speed]}ms linear infinite;
 
     box-sizing: border-box;
   `;
