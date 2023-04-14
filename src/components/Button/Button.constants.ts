@@ -1,3 +1,5 @@
+export const buttonVariants = ["default", "outline", "text"] as const;
+
 export const buttonTypographyMap = {
   large: "heading4",
   medium: "heading5",
