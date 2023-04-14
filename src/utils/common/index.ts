@@ -3,13 +3,15 @@ import {
   getObjectKeys,
   getObjectValues
 } from "./getObjectProperties";
+import { propertiesToString } from "./propertiesToString";
 import { toKebabCase } from "./toKebabCase";
 
 const common = {
   getObjectEntries,
   getObjectKeys,
   getObjectValues,
-  toKebabCase
+  toKebabCase,
+  propertiesToString
 };
 
 export { common };

@@ -74,7 +74,7 @@ export const Width: Story = {
 };
 docs.description({
   story: Width,
-  desc: `선택 가능한 스피너의 두께는 아래와 같습니다. <br/> \`width\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
+  desc: `선택 가능한 스피너의 두께는 아래와 같습니다. <br/> \`width\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
     common.getObjectKeys(theme.colors)
   )}를 제공합니다. `
 });
@@ -94,7 +94,7 @@ export const Sizes: Story = {
 };
 docs.description({
   story: Sizes,
-  desc: `선택 가능한 스피너의 크기는 아래와 같습니다. <br/> \`size\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
+  desc: `선택 가능한 스피너의 크기는 아래와 같습니다. <br/> \`size\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
     common.getObjectKeys(theme.size)
   )}를 제공합니다. `
 });
@@ -114,7 +114,7 @@ export const Speed: Story = {
 };
 docs.description({
   story: Speed,
-  desc: `선택 가능한 스피너의 속도는 아래와 같습니다. <br/> \`speed\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
+  desc: `선택 가능한 스피너의 속도는 아래와 같습니다. <br/> \`speed\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
     spinnerSpeed
   )}를 제공합니다. `
 });
