@@ -1,8 +1,8 @@
 import { addDoc } from "./addDoc";
-import { getProperties } from "./getProperty";
+import { propertiesToString } from "./propertiesToString";
 
 const story = {
-  getProperties,
+  propertiesToString,
   addDoc
 };
 
