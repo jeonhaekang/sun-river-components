@@ -4,7 +4,10 @@ import { utils } from "~/utils";
 import { Spinner } from "./Spinner";
 import { spinnerSpeed, spinnerWidth } from "./Spinner.constants";
 
-const { common, story } = utils;
+const {
+  common,
+  story: { docs, control }
+} = utils;
 
 const meta = {
   component: Spinner,
@@ -34,18 +37,13 @@ export const Default: Story = {
     size: "medium"
   }
 };
-utils.story.docs.description({
+docs.description({
   story: Default,
   desc: `속성을 선택하지 않은 기본적인 스피너 입니다.`
 });
 
 export const Colors: Story = {
   ...Default,
-  argTypes: {
-    color: {
-      control: false
-    }
-  },
   render: args => {
     return (
       <>
@@ -56,18 +54,14 @@ export const Colors: Story = {
     );
   }
 };
-utils.story.docs.description({
+docs.description({
   story: Colors,
   desc: `선택 가능한 스피너의 컬러는 아래와 같습니다. <br/> \`color\` 속성을 통해 선택할 수 있습니다.`
 });
+control.disabled({ story: Colors, property: "color" });
 
 export const Width: Story = {
   ...Default,
-  argTypes: {
-    width: {
-      control: false
-    }
-  },
   render: args => {
     return (
       <>
@@ -78,20 +72,16 @@ export const Width: Story = {
     );
   }
 };
-utils.story.docs.description({
+docs.description({
   story: Width,
   desc: `선택 가능한 스피너의 두께는 아래와 같습니다. <br/> \`width\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
     common.getObjectKeys(theme.colors)
   )}를 제공합니다. `
 });
+control.disabled({ story: Width, property: "width" });
 
 export const Sizes: Story = {
   ...Default,
-  argTypes: {
-    size: {
-      control: false
-    }
-  },
   render: args => {
     return (
       <>
@@ -102,20 +92,16 @@ export const Sizes: Story = {
     );
   }
 };
-story.docs.description({
+docs.description({
   story: Sizes,
   desc: `선택 가능한 스피너의 크기는 아래와 같습니다. <br/> \`size\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
     common.getObjectKeys(theme.size)
   )}를 제공합니다. `
 });
+control.disabled({ story: Sizes, property: "size" });
 
 export const Speed: Story = {
   ...Default,
-  argTypes: {
-    speed: {
-      control: false
-    }
-  },
   render: args => {
     return (
       <>
@@ -126,9 +112,10 @@ export const Speed: Story = {
     );
   }
 };
-story.docs.description({
+docs.description({
   story: Speed,
   desc: `선택 가능한 스피너의 속도는 아래와 같습니다. <br/> \`speed\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
     spinnerSpeed
   )}를 제공합니다. `
 });
+control.disabled({ story: Speed, property: "speed" });
