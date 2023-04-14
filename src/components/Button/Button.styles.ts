@@ -41,7 +41,7 @@ const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   return css`
     ${setBackgroundColor(base, { hover, active })}
 
-    ${setBorder({ width: 0, radius: "8px" })}
+    ${setBorder({ width: 0, radius: 8 })}
 
     ${setColor(theme.colors.white)}
 
@@ -50,12 +50,12 @@ const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
 };
 
 const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
-  const { base, hover, active } = theme.palettes[color];
+  const { base, hover, active, background } = theme.palettes[color];
 
   return css`
-    ${setBackgroundColor(theme.colors.white)}
+    ${setBackgroundColor(theme.colors.white, { hover: background })}
 
-    ${setBorder({ color: base, radius: "8px" }, { hover, active })}
+    ${setBorder({ color: base, radius: 8 }, { hover, active })}
 
     ${setColor(base, { hover, active })}
 
@@ -64,12 +64,12 @@ const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
 };
 
 const getTextStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
-  const { base, hover, active } = theme.palettes[color];
+  const { base, hover, active, background } = theme.palettes[color];
 
   return css`
-    ${setBackgroundColor("transparent")}
+    ${setBackgroundColor("transparent", { hover: background })}
 
-    ${setBorder({ width: 0 })}
+    ${setBorder({ width: 0, radius: 8 })}
 
     ${setColor(base, { hover, active })}
   `;
