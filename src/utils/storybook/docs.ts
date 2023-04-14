@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import type { StoryObj } from "@storybook/react";
 
-export const addDescription = <Story>({
+const description = <Story>({
   story,
   desc
 }: {
@@ -16,3 +16,5 @@ export const addDescription = <Story>({
     }
   };
 };
+
+export default { description };

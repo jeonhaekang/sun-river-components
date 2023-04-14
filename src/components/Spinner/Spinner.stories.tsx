@@ -34,7 +34,7 @@ export const Default: Story = {
     size: "medium"
   }
 };
-utils.story.addDescription({
+utils.story.docs.description({
   story: Default,
   desc: `속성을 선택하지 않은 기본적인 스피너 입니다.`
 });
@@ -56,7 +56,7 @@ export const Colors: Story = {
     );
   }
 };
-utils.story.addDescription({
+utils.story.docs.description({
   story: Colors,
   desc: `선택 가능한 스피너의 컬러는 아래와 같습니다. <br/> \`color\` 속성을 통해 선택할 수 있습니다.`
 });
@@ -78,7 +78,7 @@ export const Width: Story = {
     );
   }
 };
-utils.story.addDescription({
+utils.story.docs.description({
   story: Width,
   desc: `선택 가능한 스피너의 두께는 아래와 같습니다. <br/> \`width\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
     common.getObjectKeys(theme.colors)
@@ -102,7 +102,7 @@ export const Sizes: Story = {
     );
   }
 };
-story.addDescription({
+story.docs.description({
   story: Sizes,
   desc: `선택 가능한 스피너의 크기는 아래와 같습니다. <br/> \`size\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
     common.getObjectKeys(theme.size)
@@ -126,7 +126,7 @@ export const Speed: Story = {
     );
   }
 };
-story.addDescription({
+story.docs.description({
   story: Speed,
   desc: `선택 가능한 스피너의 속도는 아래와 같습니다. <br/> \`speed\` 속성을 통해 선택할 수 있으며 ${story.propertiesToString(
     spinnerSpeed
