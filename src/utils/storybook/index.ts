@@ -1,9 +1,9 @@
-import { addDoc } from "./addDoc";
+import { addDescription } from "./addDescription";
 import { propertiesToString } from "./propertiesToString";
 
 const story = {
   propertiesToString,
-  addDoc
+  addDescription
 };
 
 export { story };
