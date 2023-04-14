@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { theme } from "~/styles";
+import { Flex, theme } from "~/styles";
 import { utils } from "~/utils";
 import { Spinner } from "./Spinner";
 import { spinnerSpeed, spinnerWidth } from "./Spinner.constants";
@@ -14,14 +14,9 @@ const meta = {
   tags: ["autodocs"],
   decorators: [
     Story => (
-      <div
-        style={{
-          display: "flex",
-          gap: "12px"
-        }}
-      >
+      <Flex gap={12}>
         <Story />
-      </div>
+      </Flex>
     )
   ]
 } satisfies Meta<typeof Spinner>;
