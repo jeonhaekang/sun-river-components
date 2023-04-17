@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { CSSProperties } from "react";
 import { utils } from "~/utils";
 
-const CSSSelector = ["default", "hover", "active", "focus"] as const;
+const CSSSelector = ["base", "hover", "active", "focus"] as const;
 
 export type CSSSelectorOptions<CSSProperty extends keyof CSSProperties> = {
   [CSSSelector in (typeof CSSSelector)[number]]?: CSSProperties[CSSProperty];
@@ -16,7 +16,7 @@ export const setSelectorStyle = (
 
   const _options = { ...options };
 
-  delete _options.default;
+  delete _options.base;
 
   const selectorStyle = Object.entries(_options).reduce(
     (acc, [selector, propertyValue]) => {
@@ -30,7 +30,7 @@ export const setSelectorStyle = (
   );
 
   return css`
-    ${options.default && `${kebabProperty}: ${options.default};`}
+    ${options.base && `${kebabProperty}: ${options.base};`}
 
     &:not(:disabled) {
       ${selectorStyle}

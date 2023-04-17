@@ -7,7 +7,7 @@ import {
   position,
   setBackgroundColor,
   setBorder,
-  setColor,
+  setSelectorStyle,
   setSize,
   setTypography,
   theme
@@ -43,7 +43,7 @@ const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
 
     ${setBorder({ width: 0, radius: 8 })}
 
-    ${setColor(theme.colors.white)}
+    color: ${theme.colors.white};
 
     box-shadow: ${theme.effect.shadow.drop2};
   `;
@@ -57,7 +57,7 @@ const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
 
     ${setBorder({ color: base, radius: 8 }, { hover, active })}
 
-    ${setColor(base, { hover, active })}
+    ${setSelectorStyle("color", { base, hover, active })}
 
     box-shadow: ${theme.effect.shadow.drop1};
   `;
@@ -71,7 +71,7 @@ const getTextStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
 
     ${setBorder({ width: 0, radius: 8 })}
 
-    ${setColor(base, { hover, active })}
+    ${setSelectorStyle("color", { base, hover, active })}
   `;
 };
 
