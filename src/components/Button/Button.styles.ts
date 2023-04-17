@@ -5,7 +5,6 @@ import {
   ColorsKey,
   flex,
   position,
-  setBackgroundColor,
   setBorder,
   setSelectorStyle,
   setSize,
@@ -39,7 +38,7 @@ const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
   return css`
-    ${setBackgroundColor(base, { hover, active })}
+    ${setSelectorStyle("backgroundColor", { base, hover, active })}
 
     ${setBorder({ width: 0, radius: 8 })}
 
@@ -53,7 +52,7 @@ const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
   return css`
-    ${setBackgroundColor(theme.colors.white)}
+    background-color: ${theme.colors.white};
 
     ${setBorder({ color: base, radius: 8 }, { hover, active })}
 
@@ -67,7 +66,7 @@ const getTextStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
   return css`
-    ${setBackgroundColor("transparent")}
+    background-color: transparent;
 
     ${setBorder({ width: 0, radius: 8 })}
 
