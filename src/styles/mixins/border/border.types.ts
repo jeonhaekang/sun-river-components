@@ -1,9 +1,9 @@
 import { CSSProperties } from "react";
 
-export interface SetBorderProps {
+export interface BorderProps {
   width?: CSSProperties["borderWidth"];
   color?: CSSProperties["borderColor"];
-  radius?: CSSProperties["borderRadius"];
   style?: CSSProperties["borderStyle"];
+  radius?: CSSProperties["borderRadius"];
   direction?: "top" | "bottom" | "left" | "right";
 }

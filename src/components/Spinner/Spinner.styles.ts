@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { setBorder, setSize, theme } from "~/styles";
+import { border, setSize, theme } from "~/styles";
 import { spinnerSpeedMap, spinnerWidthMap } from "./Spinner.constants";
 import { SpinnerProps } from "./Spinner.types";
 
@@ -24,11 +24,11 @@ export const spinner = ({
 
     ${setSize(spinnerSize, spinnerSize)}
 
-    ${setBorder({
+    ${border({
       width: spinnerWidthMap[width],
       radius: "50%",
       color: theme.colors[color]
-    })}    
+    })}
     border-bottom-color: transparent;
 
     animation: rotation ${spinnerSpeedMap[speed]}ms linear infinite;

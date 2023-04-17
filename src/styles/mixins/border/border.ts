@@ -1,29 +1,40 @@
 import { css } from "@emotion/react";
-import {
-  CSSSelectorOptions,
-  cssHelper,
-  setSelectorStyle,
-  theme
-} from "~/styles";
-import { SetBorderProps } from "./border.types";
+import { theme, unitToPx } from "~/styles";
+import { BorderProps } from "./border.types";
 
-export const setBorder = (
-  options: SetBorderProps,
-  selectorStyleOptions: CSSSelectorOptions<"borderColor"> = {}
-) => {
-  const {
-    width = 1,
-    color = theme.colors.black,
-    style = "solid",
-    radius,
-    direction
-  } = options;
-  const border = `${width}px ${style} ${color}`;
+export const border = ({
+  width = 1,
+  color = theme.colors.gray2,
+  style = "solid",
+  radius,
+  direction
+}: BorderProps) => {
+  const border = `${unitToPx(width)} ${style} ${color}`;
 
   return css`
-    ${direction ? `border-${direction}: ${border};` : `border: ${border};`}
-    ${radius && cssHelper("borderRadius", radius)}
+    ${direction ? `border-${direction}: ${border};` : `border: ${border};`};
 
-    ${setSelectorStyle("borderColor", selectorStyleOptions)}
+    ${radius && `border-radius: ${unitToPx(radius)};`}
   `;
 };
+
+const top = (props: Omit<BorderProps, "direction">) => {
+  return border({ ...props, direction: "top" });
+};
+
+const right = (props: Omit<BorderProps, "direction">) => {
+  return border({ ...props, direction: "right" });
+};
+
+const bottom = (props: Omit<BorderProps, "direction">) => {
+  return border({ ...props, direction: "bottom" });
+};
+
+const left = (props: Omit<BorderProps, "direction">) => {
+  return border({ ...props, direction: "left" });
+};
+
+border.top = top;
+border.right = right;
+border.bottom = bottom;
+border.left = left;

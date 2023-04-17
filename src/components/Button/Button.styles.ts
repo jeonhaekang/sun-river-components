@@ -3,9 +3,9 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
   ColorsKey,
+  border,
   flex,
   position,
-  setBorder,
   setSelectorStyle,
   setSize,
   setTypography,
@@ -21,6 +21,8 @@ const getBaseStyle = ({ size = "medium" }: ButtonPropsWithoutLabel) => {
     height: ${theme.size[size]}px;
 
     padding: 0 ${buttonPaddingMap[size]}px;
+
+    border: none;
 
     ${setTypography(buttonTypographyMap[size])};
 
@@ -40,7 +42,7 @@ const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   return css`
     ${setSelectorStyle("backgroundColor", { base, hover, active })}
 
-    ${setBorder({ width: 0, radius: 8 })}
+    ${border({ width: 0, radius: 8 })}
 
     color: ${theme.colors.white};
 
@@ -54,7 +56,8 @@ const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   return css`
     background-color: ${theme.colors.white};
 
-    ${setBorder({ color: base, radius: 8 }, { hover, active })}
+    ${border({ width: 1, radius: 8 })}
+    ${setSelectorStyle("borderColor", { base, hover, active })}
 
     ${setSelectorStyle("color", { base, hover, active })}
 
@@ -68,7 +71,7 @@ const getTextStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   return css`
     background-color: transparent;
 
-    ${setBorder({ width: 0, radius: 8 })}
+    ${border({ width: 0, radius: 8 })}
 
     ${setSelectorStyle("color", { base, hover, active })}
   `;
