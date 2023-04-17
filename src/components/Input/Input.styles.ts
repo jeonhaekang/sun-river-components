@@ -35,6 +35,7 @@ const getBaseInputStyle = ({
   };
 
   return css`
+    margin: 0;
     padding: 0 ${PADDING_MAP[_size]}px;
 
     ${border({ width: 1, radius: getRadius() })}
