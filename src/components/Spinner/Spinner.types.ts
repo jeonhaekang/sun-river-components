@@ -1,9 +1,9 @@
 import { ColorsKey, SizeKey } from "~/styles";
-import { spinnerSpeed, spinnerWidth } from "./Spinner.constants";
+import { SPEED, WIDTH } from "./Spinner.constants";
 
 export interface SpinnerProps {
   size?: SizeKey;
-  width?: (typeof spinnerWidth)[number];
-  speed?: (typeof spinnerSpeed)[number];
+  width?: (typeof WIDTH)[number];
+  speed?: (typeof SPEED)[number];
   color?: ColorsKey;
 }

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Flex, theme } from "~/styles";
 import { utils } from "~/utils";
 import { Spinner } from "./Spinner";
-import { spinnerSpeed, spinnerWidth } from "./Spinner.constants";
+import { DEFAULT, SPEED, WIDTH } from "./Spinner.constants";
 
 const {
   common,
@@ -25,12 +25,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    color: "blue",
-    width: "normal",
-    speed: "normal",
-    size: "medium"
-  }
+  args: DEFAULT
 };
 docs.description({
   story: Default,
@@ -60,7 +55,7 @@ export const Width: Story = {
   render: args => {
     return (
       <>
-        {spinnerWidth.map(width => (
+        {WIDTH.map(width => (
           <Spinner key={width} {...args} width={width} />
         ))}
       </>
@@ -100,7 +95,7 @@ export const Speed: Story = {
   render: args => {
     return (
       <>
-        {spinnerSpeed.map(speed => (
+        {SPEED.map(speed => (
           <Spinner key={speed} {...args} speed={speed} />
         ))}
       </>
@@ -110,7 +105,7 @@ export const Speed: Story = {
 docs.description({
   story: Speed,
   desc: `선택 가능한 스피너의 속도는 아래와 같습니다. <br/> \`speed\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
-    spinnerSpeed
+    SPEED
   )}를 제공합니다. `
 });
 control.disabled({ story: Speed, property: "speed" });
