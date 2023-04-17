@@ -12,18 +12,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled
     };
 
+    const mergedProps = {
+      ...props,
+      ...styleProps
+    };
+
     if (leftAddon || rightAddon) {
       return (
         <Styled.InputContainer {...styleProps}>
           {leftAddon && <Styled.LeftAddon>{leftAddon}</Styled.LeftAddon>}
 
-          <Styled.Input {...styleProps} {...props} ref={ref} />
+          <Styled.Input ref={ref} {...mergedProps} />
 
           {rightAddon && <Styled.RightAddon>{rightAddon}</Styled.RightAddon>}
         </Styled.InputContainer>
       );
     }
 
-    return <Styled.Input {...styleProps} {...props} ref={ref} />;
+    return <Styled.Input ref={ref} {...mergedProps} />;
   }
 );

@@ -26,16 +26,20 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       color
     };
 
+    const mergedProps = {
+      ...props,
+      ...styleProps
+    };
+
     return (
       <Styled.Button
         ref={ref}
         disabled={isLoading || disabled}
-        {...props}
-        {...styleProps}
+        {...mergedProps}
       >
         {label}
 
-        {isLoading && <Styled.ButtonSpinner {...props} {...styleProps} />}
+        {isLoading && <Styled.ButtonSpinner {...mergedProps} />}
       </Styled.Button>
     );
   }
