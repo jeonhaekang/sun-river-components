@@ -1,6 +1,6 @@
 {
   "name": "@sun-river/components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -75,5 +75,13 @@
     "storybook": "^7.0.2",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeonhaekang/sun-river-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeonhaekang/sun-river-components/issues"
+  },
+  "homepage": "https://github.com/jeonhaekang/sun-river-components#readme"
 }
