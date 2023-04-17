@@ -2,37 +2,36 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { border, flex, setSelectorStyle, setTypography, theme } from "~/styles";
 import {
-  DEFAULT_SIZE,
-  INPUT_RADIUS,
+  DEFAULT,
   PADDING_MAP,
+  RADIUS,
   STATUS_COLOR_MAP,
   TYPOGRAPHY_MAP
 } from "./Input.constants";
 import { InputStyleProps } from "./Input.types";
 
-const getSizeStyle = ({ _size = DEFAULT_SIZE }: InputStyleProps) => {
+const getSizeStyle = ({ _size = DEFAULT.size }: InputStyleProps) => {
   return css`
     height: ${theme.size[_size]}px;
   `;
 };
 
 const getBaseInputStyle = ({
-  _size = DEFAULT_SIZE,
-  status,
+  _size = DEFAULT.size,
+  status = DEFAULT.status,
   leftAddon,
   rightAddon
 }: InputStyleProps) => {
-  const { base, hover, focused } =
-    theme.palettes[STATUS_COLOR_MAP[status || "default"]];
+  const { base, hover, focused } = theme.palettes[STATUS_COLOR_MAP[status]];
 
   const getRadius = () => {
     if (leftAddon && rightAddon) return 0;
 
-    if (leftAddon) return `0 ${INPUT_RADIUS}px ${INPUT_RADIUS}px 0`;
+    if (leftAddon) return `0 ${RADIUS}px ${RADIUS}px 0`;
 
-    if (rightAddon) return `${INPUT_RADIUS}px 0 0 ${INPUT_RADIUS}px`;
+    if (rightAddon) return `${RADIUS}px 0 0 ${RADIUS}px`;
 
-    return INPUT_RADIUS;
+    return RADIUS;
   };
 
   return css`
@@ -40,7 +39,7 @@ const getBaseInputStyle = ({
 
     ${border({ width: 1, radius: getRadius() })}
     ${setSelectorStyle("borderColor", {
-      base: status && base,
+      base: status === "none" ? theme.colors.gray2 : base,
       hover,
       focus: base
     })}
@@ -94,13 +93,13 @@ const addonStyle = css`
 export const LeftAddon = styled.span`
   ${addonStyle}
 
-  border-radius: ${INPUT_RADIUS}px 0 0 ${INPUT_RADIUS}px;
+  border-radius: ${RADIUS}px 0 0 ${RADIUS}px;
   border-right: none;
 `;
 
 export const RightAddon = styled.span`
   ${addonStyle}
 
-  border-radius: 0 ${INPUT_RADIUS}px ${INPUT_RADIUS}px 0;
+  border-radius: 0 ${RADIUS}px ${RADIUS}px 0;
   border-left: none;
 `;

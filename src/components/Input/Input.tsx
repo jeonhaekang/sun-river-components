@@ -1,12 +1,23 @@
 import { forwardRef } from "react";
-import { DEFAULT_SIZE } from "./Input.constants";
+import { DEFAULT } from "./Input.constants";
 import * as Styled from "./Input.styles";
 import { InputProps } from "./Input.types";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ size = DEFAULT_SIZE, leftAddon, rightAddon, disabled, ...props }, ref) => {
+  (
+    {
+      size = DEFAULT.size,
+      status = DEFAULT.status,
+      leftAddon,
+      rightAddon,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
     const styleProps = {
       _size: size,
+      status,
       leftAddon,
       rightAddon,
       disabled

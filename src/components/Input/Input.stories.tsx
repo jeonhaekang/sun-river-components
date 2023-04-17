@@ -4,7 +4,7 @@ import { FlexColumn, theme } from "~/styles";
 import { utils } from "~/utils";
 import { getObjectKeys } from "~/utils/common/getObjectProperties";
 import { Input } from "./Input";
-import { INPUT_STATUS } from "./Input.constants";
+import { DEFAULT, STATUS } from "./Input.constants";
 
 const {
   common,
@@ -52,7 +52,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    size: "medium",
+    ...DEFAULT,
     disabled: false,
     readOnly: false,
     placeholder: "placeholder"
@@ -88,7 +88,7 @@ export const Status: Story = {
   render: arg => {
     return (
       <>
-        {INPUT_STATUS.map(status => (
+        {STATUS.map(status => (
           <Input key={status} {...arg} status={status} placeholder={status} />
         ))}
       </>
@@ -98,7 +98,7 @@ export const Status: Story = {
 docs.description({
   story: Status,
   desc: `선택 가능한 인풋의 상태는 아래와 같습니다. <br/> \`status\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
-    INPUT_STATUS
+    STATUS
   )}를 제공합니다.`
 });
 control.disabled({ story: Status, property: "status" });
