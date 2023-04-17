@@ -8,7 +8,7 @@ export const border = ({
   style = "solid",
   radius,
   direction
-}: BorderProps) => {
+}: BorderProps = {}) => {
   const border = `${unitToPx(width)} ${style} ${color}`;
 
   return css`
