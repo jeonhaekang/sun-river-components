@@ -11,20 +11,26 @@ import {
   setTypography,
   theme
 } from "~/styles";
-import { buttonPaddingMap, buttonTypographyMap } from "./Button.constants";
+import {
+  DEFAULT_COLOR,
+  DEFAULT_SIZE,
+  PADDING_MAP,
+  RADIUS,
+  TYPOGRAPHY_MAP
+} from "./Button.constants";
 import { ButtonPropsWithoutLabel } from "./Button.types";
 
-const getBaseStyle = ({ size = "medium" }: ButtonPropsWithoutLabel) => {
+const getBaseStyle = ({ size = DEFAULT_SIZE }: ButtonPropsWithoutLabel) => {
   return css`
     position: relative;
 
     height: ${theme.size[size]}px;
 
-    padding: 0 ${buttonPaddingMap[size]}px;
+    padding: 0 ${PADDING_MAP[size]}px;
 
     border: none;
 
-    ${setTypography(buttonTypographyMap[size])};
+    ${setTypography(TYPOGRAPHY_MAP[size])};
 
     &:disabled {
       opacity: ${theme.opacity.disabled};
@@ -36,13 +42,15 @@ const getBaseStyle = ({ size = "medium" }: ButtonPropsWithoutLabel) => {
   `;
 };
 
-const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
+const getDefaultStyle = ({
+  color = DEFAULT_COLOR
+}: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
   return css`
     ${setSelectorStyle("backgroundColor", { base, hover, active })}
 
-    ${border({ width: 0, radius: 8 })}
+    ${border({ width: 0, radius: RADIUS })}
 
     color: ${theme.colors.white};
 
@@ -50,13 +58,15 @@ const getDefaultStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   `;
 };
 
-const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
+const getOutlineStyle = ({
+  color = DEFAULT_COLOR
+}: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
   return css`
     background-color: ${theme.colors.white};
 
-    ${border({ width: 1, radius: 8 })}
+    ${border({ width: 1, radius: RADIUS })}
     ${setSelectorStyle("borderColor", { base, hover, active })}
 
     ${setSelectorStyle("color", { base, hover, active })}
@@ -65,13 +75,13 @@ const getOutlineStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
   `;
 };
 
-const getTextStyle = ({ color = "blue" }: ButtonPropsWithoutLabel) => {
+const getTextStyle = ({ color = DEFAULT_COLOR }: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
   return css`
     background-color: transparent;
 
-    ${border({ width: 0, radius: 8 })}
+    ${border({ width: 0, radius: RADIUS })}
 
     ${setSelectorStyle("color", { base, hover, active })}
   `;
@@ -102,7 +112,7 @@ export const ButtonSpinner = styled.span<ButtonPropsWithoutLabel>`
   &::before {
     content: "";
 
-    ${({ variant, color = "blue" }) => {
+    ${({ variant, color = DEFAULT_COLOR }) => {
       let spinnerColor: ColorsKey;
 
       switch (variant) {

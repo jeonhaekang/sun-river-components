@@ -3,7 +3,12 @@ import { Flex, theme } from "~/styles";
 import { utils } from "~/utils";
 import { getObjectKeys } from "~/utils/common/getObjectProperties";
 import { Button } from "./Button";
-import { buttonVariants } from "./Button.constants";
+import {
+  DEFAULT_COLOR,
+  DEFAULT_SIZE,
+  DEFAULT_VARIANTS,
+  VARIANTS
+} from "./Button.constants";
 
 const {
   common,
@@ -28,9 +33,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     label: "Button",
-    variant: "default",
-    color: "blue",
-    size: "medium",
+    variant: DEFAULT_VARIANTS,
+    color: DEFAULT_COLOR,
+    size: DEFAULT_SIZE,
     disabled: false,
     isLoading: false
   }
@@ -45,7 +50,7 @@ export const Variants: Story = {
   render: arg => {
     return (
       <>
-        {buttonVariants.map(variant => (
+        {VARIANTS.map(variant => (
           <Button {...arg} key={variant} variant={variant} />
         ))}
       </>
@@ -55,7 +60,7 @@ export const Variants: Story = {
 docs.description({
   story: Variants,
   desc: `선택 가능한 버튼의 형태는 아래와 같습니다. <br/> \`variant\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
-    buttonVariants
+    VARIANTS
   )}를 제공합니다.`
 });
 control.disabled({ story: Variants, property: "variant" });

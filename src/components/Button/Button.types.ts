@@ -1,9 +1,9 @@
 import type { ButtonHTMLAttributes } from "react";
 import { PalettesKey, SizeKey } from "~/styles";
-import { buttonVariants } from "./Button.constants";
+import { VARIANTS } from "./Button.constants";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: (typeof buttonVariants)[number];
+  variant?: (typeof VARIANTS)[number];
   label: string;
   size?: SizeKey;
   color?: PalettesKey;
