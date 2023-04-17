@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { CSSProperties } from "react";
-import { CSSSelectorOptions, getSelectorStyle } from "~/styles";
+import { CSSSelectorOptions, setSelectorStyle } from "~/styles";
 
 export const setBackgroundColor = (
   defaultColor: CSSProperties["backgroundColor"],
@@ -9,6 +9,6 @@ export const setBackgroundColor = (
   return css`
     background-color: ${defaultColor};
 
-    ${getSelectorStyle("backgroundColor", selectorStyleOptions)};
+    ${setSelectorStyle("backgroundColor", selectorStyleOptions)};
   `;
 };

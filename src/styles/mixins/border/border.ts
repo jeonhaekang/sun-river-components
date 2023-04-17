@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import {
   CSSSelectorOptions,
-  getSelectorStyle,
+  setSelectorStyle,
   theme,
   unitToPx
 } from "~/styles";
@@ -24,6 +24,6 @@ export const setBorder = (
     ${direction ? `border-${direction}: ${border};` : `border: ${border};`}
     ${radius && unitToPx("borderRadius", radius)}
 
-    ${getSelectorStyle("borderColor", selectorStyleOptions)}
+    ${setSelectorStyle("borderColor", selectorStyleOptions)}
   `;
 };

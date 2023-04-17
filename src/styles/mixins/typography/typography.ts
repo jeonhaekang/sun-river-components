@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { CSSSelectorOptions, getSelectorStyle } from "../common";
+import { CSSSelectorOptions, setSelectorStyle } from "../common";
 import { fontSize, fontWeight, lineHeight } from "./typography.constants";
 
 export const setTypography = (typography: keyof typeof fontSize) => {
@@ -17,6 +17,6 @@ export const setColor = (
   return css`
     color: ${defaultColor};
 
-    ${getSelectorStyle("color", selectorStyleOptions)}
+    ${setSelectorStyle("color", selectorStyleOptions)}
   `;
 };
