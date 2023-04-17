@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { unitToPx } from "../../common";
+import { cssHelper } from "../../common";
 import type { PositionProps } from "./Position.types";
 
 const position = ({
@@ -10,11 +10,11 @@ const position = ({
   left = "auto"
 }: PositionProps) => {
   return css`
-    ${unitToPx("position", position)}
-    ${unitToPx("top", top)}
-    ${unitToPx("right", right)}
-    ${unitToPx("bottom", bottom)}
-    ${unitToPx("left", left)}
+    ${cssHelper("position", position)}
+    ${cssHelper("top", top)}
+    ${cssHelper("right", right)}
+    ${cssHelper("bottom", bottom)}
+    ${cssHelper("left", left)}
   `;
 };
 

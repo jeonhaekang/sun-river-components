@@ -1,5 +1,5 @@
 import { SerializedStyles, css } from "@emotion/react";
-import { unitToPx } from "../common";
+import { cssHelper } from "../common";
 import { SetSize } from "./size.types";
 
 export function setSize(
@@ -17,17 +17,17 @@ export function setSize(
     const { width, height, minWidth, minHeight, maxWidth, maxHeight } = arg1;
 
     return css`
-      ${width && unitToPx("width", width)}
-      ${height && unitToPx("height", height)}
-      ${minWidth && unitToPx("minWidth", minWidth)}
-      ${minHeight && unitToPx("minHeight", minHeight)}
-      ${maxWidth && unitToPx("maxWidth", maxWidth)}
-      ${maxHeight && unitToPx("maxHeight", maxHeight)}
+      ${width && cssHelper("width", width)}
+      ${height && cssHelper("height", height)}
+      ${minWidth && cssHelper("minWidth", minWidth)}
+      ${minHeight && cssHelper("minHeight", minHeight)}
+      ${maxWidth && cssHelper("maxWidth", maxWidth)}
+      ${maxHeight && cssHelper("maxHeight", maxHeight)}
     `;
   }
 
   return css`
-    ${unitToPx("width", arg1)}
-    ${unitToPx("height", arg2)}
+    ${cssHelper("width", arg1)}
+    ${cssHelper("height", arg2)}
   `;
 }

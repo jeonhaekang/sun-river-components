@@ -6,4 +6,5 @@ const utils = {
   story
 };
 
+export * from "./type";
 export { utils };
