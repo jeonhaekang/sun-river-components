@@ -1,32 +1,29 @@
+import { forwardRef } from "react";
 import { DEFAULT_SIZE } from "./Input.constants";
 import * as Styled from "./Input.styles";
 import { InputProps } from "./Input.types";
 
-export const Input = ({
-  size = DEFAULT_SIZE,
-  leftAddon,
-  rightAddon,
-  disabled,
-  ...props
-}: InputProps) => {
-  const styleProps = {
-    _size: size,
-    leftAddon,
-    rightAddon,
-    disabled
-  };
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ size = DEFAULT_SIZE, leftAddon, rightAddon, disabled, ...props }, ref) => {
+    const styleProps = {
+      _size: size,
+      leftAddon,
+      rightAddon,
+      disabled
+    };
 
-  if (leftAddon || rightAddon) {
-    return (
-      <Styled.InputContainer {...styleProps}>
-        {leftAddon && <Styled.LeftAddon>{leftAddon}</Styled.LeftAddon>}
+    if (leftAddon || rightAddon) {
+      return (
+        <Styled.InputContainer {...styleProps}>
+          {leftAddon && <Styled.LeftAddon>{leftAddon}</Styled.LeftAddon>}
 
-        <Styled.Input {...styleProps} {...props} />
+          <Styled.Input {...styleProps} {...props} ref={ref} />
 
-        {rightAddon && <Styled.RightAddon>{rightAddon}</Styled.RightAddon>}
-      </Styled.InputContainer>
-    );
+          {rightAddon && <Styled.RightAddon>{rightAddon}</Styled.RightAddon>}
+        </Styled.InputContainer>
+      );
+    }
+
+    return <Styled.Input {...styleProps} {...props} ref={ref} />;
   }
-
-  return <Styled.Input {...styleProps} {...props} />;
-};
+);
