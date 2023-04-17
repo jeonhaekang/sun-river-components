@@ -12,7 +12,7 @@ export const flex = ({
 }: FlexProps) => {
   return css`
     display: ${display};
-    direction: ${direction};
+    flex-direction: ${direction};
     align-items: ${align};
     justify-content: ${justify};
     ${cssHelper("gap", gap)};

@@ -11,4 +11,8 @@ const shadow = {
     "inset 0px 1px 3px rgba(0, 0, 0, 0.1), inset 0px 2px 1px rgba(0, 0, 0, 0.06), inset 0px 1px 1px rgba(0, 0, 0, 0.08)"
 };
 
-export default { shadow };
+const opacity = {
+  disabled: 0.5
+};
+
+export default { shadow, opacity };

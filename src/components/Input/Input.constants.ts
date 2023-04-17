@@ -1,3 +1,21 @@
+export const INPUT_STATUS = ["success", "warning", "error"] as const;
+
+export const INPUT_TYPES = [
+  "email",
+  "number",
+  "password",
+  "tel",
+  "text",
+  "url",
+  "date",
+  "month",
+  "datetime-local",
+  "search",
+  "week"
+] as const;
+
+export const DEFAULT_SIZE = "medium";
+
 export const INPUT_RADIUS = 8;
 
 export const STATUS_COLOR_MAP = {

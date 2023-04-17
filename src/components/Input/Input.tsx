@@ -1,29 +1,38 @@
-import { useInput } from "./Input.hooks";
+import { useMemo } from "react";
+import { DEFAULT_SIZE } from "./Input.constants";
 import * as Styled from "./Input.styles";
 import { InputProps } from "./Input.types";
 
-export const Input = (props: InputProps) => {
-  const app = useInput(props);
-
-  const { size, leftAddon, rightAddon, ...rest } = props;
-
+export const Input = ({
+  size = DEFAULT_SIZE,
+  leftAddon,
+  rightAddon,
+  disabled,
+  ...props
+}: InputProps) => {
   const styleProps = {
     _size: size,
     leftAddon,
-    rightAddon
+    rightAddon,
+    disabled
   };
 
-  if (app.hasAddon) {
+  const hasAddon = useMemo(
+    () => leftAddon || rightAddon,
+    [leftAddon, rightAddon]
+  );
+
+  if (hasAddon) {
     return (
       <Styled.InputContainer {...styleProps}>
         {leftAddon && <Styled.LeftAddon>{leftAddon}</Styled.LeftAddon>}
 
-        <Styled.Input {...styleProps} {...rest} />
+        <Styled.Input {...styleProps} {...props} />
 
         {rightAddon && <Styled.RightAddon>{rightAddon}</Styled.RightAddon>}
       </Styled.InputContainer>
     );
   }
 
-  return <Styled.Input {...styleProps} {...rest} />;
+  return <Styled.Input {...styleProps} {...props} />;
 };
