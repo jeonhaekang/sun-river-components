@@ -26,15 +26,12 @@ const getBaseInputStyle = ({
     theme.palettes[STATUS_COLOR_MAP[status || "default"]];
 
   const getRadius = () => {
-    if (leftAddon && rightAddon) {
-      return 0;
-    }
-    if (leftAddon) {
-      return `0 ${INPUT_RADIUS}px ${INPUT_RADIUS}px 0`;
-    }
-    if (rightAddon) {
-      return `${INPUT_RADIUS}px 0 0 ${INPUT_RADIUS}px`;
-    }
+    if (leftAddon && rightAddon) return 0;
+
+    if (leftAddon) return `0 ${INPUT_RADIUS}px ${INPUT_RADIUS}px 0`;
+
+    if (rightAddon) return `${INPUT_RADIUS}px 0 0 ${INPUT_RADIUS}px`;
+
     return INPUT_RADIUS;
   };
 
