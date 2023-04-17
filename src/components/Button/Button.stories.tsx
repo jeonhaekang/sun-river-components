@@ -3,12 +3,7 @@ import { Flex, theme } from "~/styles";
 import { utils } from "~/utils";
 import { getObjectKeys } from "~/utils/common/getObjectProperties";
 import { Button } from "./Button";
-import {
-  DEFAULT_COLOR,
-  DEFAULT_SIZE,
-  DEFAULT_VARIANTS,
-  VARIANTS
-} from "./Button.constants";
+import { DEFAULT, VARIANTS } from "./Button.constants";
 
 const {
   common,
@@ -32,10 +27,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    ...DEFAULT,
     label: "Button",
-    variant: DEFAULT_VARIANTS,
-    color: DEFAULT_COLOR,
-    size: DEFAULT_SIZE,
     disabled: false,
     isLoading: false
   }

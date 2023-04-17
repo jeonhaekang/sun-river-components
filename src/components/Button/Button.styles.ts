@@ -12,15 +12,14 @@ import {
   theme
 } from "~/styles";
 import {
-  DEFAULT_COLOR,
-  DEFAULT_SIZE,
+  DEFAULT,
   PADDING_MAP,
   RADIUS,
   TYPOGRAPHY_MAP
 } from "./Button.constants";
 import { ButtonPropsWithoutLabel } from "./Button.types";
 
-const getBaseStyle = ({ size = DEFAULT_SIZE }: ButtonPropsWithoutLabel) => {
+const getBaseStyle = ({ size = DEFAULT.size }: ButtonPropsWithoutLabel) => {
   return css`
     position: relative;
 
@@ -43,7 +42,7 @@ const getBaseStyle = ({ size = DEFAULT_SIZE }: ButtonPropsWithoutLabel) => {
 };
 
 const getDefaultStyle = ({
-  color = DEFAULT_COLOR
+  color = DEFAULT.color
 }: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
@@ -59,7 +58,7 @@ const getDefaultStyle = ({
 };
 
 const getOutlineStyle = ({
-  color = DEFAULT_COLOR
+  color = DEFAULT.color
 }: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
@@ -75,7 +74,7 @@ const getOutlineStyle = ({
   `;
 };
 
-const getTextStyle = ({ color = DEFAULT_COLOR }: ButtonPropsWithoutLabel) => {
+const getTextStyle = ({ color = DEFAULT.color }: ButtonPropsWithoutLabel) => {
   const { base, hover, active } = theme.palettes[color];
 
   return css`
@@ -112,7 +111,7 @@ export const ButtonSpinner = styled.span<ButtonPropsWithoutLabel>`
   &::before {
     content: "";
 
-    ${({ variant, color = DEFAULT_COLOR }) => {
+    ${({ variant, color = DEFAULT.color }) => {
       let spinnerColor: ColorsKey;
 
       switch (variant) {

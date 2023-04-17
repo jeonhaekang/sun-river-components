@@ -14,8 +14,8 @@ export const PADDING_MAP = {
 
 export const RADIUS = 8;
 
-export const DEFAULT_VARIANTS = "fill";
-
-export const DEFAULT_SIZE = "medium";
-
-export const DEFAULT_COLOR = "blue";
+export const DEFAULT = {
+  variant: "fill",
+  size: "medium",
+  color: "blue"
+} as const;
