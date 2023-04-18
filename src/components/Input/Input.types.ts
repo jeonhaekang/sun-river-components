@@ -1,12 +1,13 @@
 import { InputHTMLAttributes, ReactNode } from "react";
 import { SizeKey } from "~/styles";
+import { OneOf } from "~/utils";
 import { STATUS, TYPES } from "./Input.constants";
 
 type Input = InputHTMLAttributes<HTMLInputElement>;
 
 export interface InputProps extends Omit<Input, "size" | "type"> {
-  type?: (typeof TYPES)[number];
-  status?: (typeof STATUS)[number];
+  type?: OneOf<typeof TYPES>;
+  status?: OneOf<typeof STATUS>;
   size?: SizeKey;
   leftAddon?: ReactNode;
   rightAddon?: ReactNode;
