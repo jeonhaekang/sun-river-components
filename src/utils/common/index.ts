@@ -3,6 +3,7 @@ import {
   getObjectKeys,
   getObjectValues
 } from "./getObjectProperties";
+import { getRandomColor } from "./getRandomColor";
 import { propertiesToString } from "./propertiesToString";
 import { toKebabCase } from "./toKebabCase";
 
@@ -11,7 +12,8 @@ const common = {
   getObjectKeys,
   getObjectValues,
   toKebabCase,
-  propertiesToString
+  propertiesToString,
+  getRandomColor
 };
 
 export { common };

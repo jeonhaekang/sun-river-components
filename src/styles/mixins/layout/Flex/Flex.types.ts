@@ -7,3 +7,7 @@ export interface FlexProps {
   justify?: CSSProperties["justifyContent"];
   gap?: CSSProperties["gap"];
 }
+
+export type FlexColumnProps = Omit<FlexProps, "direction">;
+
+export type FlexCenterProps = Omit<FlexProps, "align" | "justify">;

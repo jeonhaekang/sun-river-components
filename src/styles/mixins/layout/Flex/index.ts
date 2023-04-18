@@ -1,7 +1,9 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { cssHelper } from "../../common";
-import { FlexProps } from "./Flex.types";
+import { FlexCenterProps, FlexColumnProps, FlexProps } from "./Flex.types";
+
+export * from "./Flex.types";
 
 export const flex = ({
   display = "flex",
@@ -19,11 +21,11 @@ export const flex = ({
   `;
 };
 
-const column = (props: Omit<FlexProps, "direction"> = {}) => {
+const column = (props: FlexColumnProps = {}) => {
   return flex({ ...props, direction: "column" });
 };
 
-const center = (props: Omit<FlexProps, "align" | "justify"> = {}) => {
+const center = (props: FlexCenterProps = {}) => {
   return flex({ ...props, align: "center", justify: "center" });
 };
 

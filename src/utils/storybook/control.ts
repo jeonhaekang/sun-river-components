@@ -16,4 +16,21 @@ const disabled = <Story>({
   };
 };
 
-export default { disabled };
+const hide = <Story>({
+  story,
+  property
+}: {
+  story: StoryObj<Story>;
+  property: string;
+}) => {
+  story.argTypes = {
+    ...story.argTypes,
+    [property]: {
+      table: {
+        disable: true
+      }
+    }
+  };
+};
+
+export default { disabled, hide };
