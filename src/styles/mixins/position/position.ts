@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
-import { cssHelper } from "../../common";
-import type { PositionProps } from "./Position.types";
+import { cssHelper } from "../common";
+import type { PositionProps } from "./position.types";
 
 const position = ({
   position = "relative",

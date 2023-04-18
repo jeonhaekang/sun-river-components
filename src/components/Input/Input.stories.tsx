@@ -1,9 +1,8 @@
-import { Button } from "@components/Button";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FlexColumn } from "~/layouts";
-import { theme } from "~/styles";
-import { utils } from "~/utils";
-import { getObjectKeys } from "~/utils/common/getObjectProperties";
+import { FlexColumn } from "../../layouts";
+import { theme } from "../../styles";
+import { utils } from "../../utils";
+import { Button } from "../Button";
 import { Input } from "./Input";
 import { DEFAULT, STATUS } from "./Input.constants";
 
@@ -69,7 +68,7 @@ export const Sizes: Story = {
   render: arg => {
     return (
       <>
-        {getObjectKeys(theme.size).map(size => (
+        {common.getObjectKeys(theme.size).map(size => (
           <Input key={size} {...arg} size={size} placeholder={size} />
         ))}
       </>
@@ -79,7 +78,7 @@ export const Sizes: Story = {
 docs.description({
   story: Sizes,
   desc: `선택 가능한 인풋의 크기는 아래와 같습니다. <br/> \`size\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
-    getObjectKeys(theme.size)
+    common.getObjectKeys(theme.size)
   )}를 제공합니다.`
 });
 control.disabled({ story: Sizes, property: "size" });

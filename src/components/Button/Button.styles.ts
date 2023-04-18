@@ -1,6 +1,6 @@
-import { spinner } from "@components/Spinner";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+
 import {
   ColorsKey,
   border,
@@ -10,7 +10,8 @@ import {
   setSize,
   setTypography,
   theme
-} from "~/styles";
+} from "../../styles";
+import { spinner } from "../Spinner";
 import {
   DEFAULT,
   PADDING_MAP,

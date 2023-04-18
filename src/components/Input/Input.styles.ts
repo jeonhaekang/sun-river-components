@@ -1,6 +1,12 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { border, flex, setSelectorStyle, setTypography, theme } from "~/styles";
+import {
+  border,
+  flex,
+  setSelectorStyle,
+  setTypography,
+  theme
+} from "../../styles";
 import {
   DEFAULT,
   PADDING_MAP,

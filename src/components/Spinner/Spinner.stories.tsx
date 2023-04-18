@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Flex } from "~/layouts";
-import { theme } from "~/styles";
-import { utils } from "~/utils";
+import { Flex } from "../../layouts";
+import { theme } from "../../styles";
+import { utils } from "../../utils";
 import { Spinner } from "./Spinner";
 import { DEFAULT, SPEED, WIDTH } from "./Spinner.constants";
 

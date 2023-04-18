@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { OneOf } from "~/utils";
+import { OneOf } from "../../utils";
 import { UNIT } from "./Dummy.constants";
 
 export interface DummyProps {

@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, ReactNode } from "react";
-import { SizeKey } from "~/styles";
-import { OneOf } from "~/utils";
+import { SizeKey } from "../../styles";
+import { OneOf } from "../../utils";
 import { STATUS, TYPES } from "./Input.constants";
 
 type Input = InputHTMLAttributes<HTMLInputElement>;

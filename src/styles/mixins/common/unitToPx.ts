@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { utils, ValueOf } from "~/utils";
+import { ValueOf, utils } from "../../../utils";
 
 export const unitToPx = (value: ValueOf<CSSProperties>) => {
   return typeof value === "number" ? `${value}px` : value;

@@ -1,7 +1,7 @@
-import { Dummy } from "@components/Dummy";
 import type { Meta, StoryObj } from "@storybook/react";
-import { theme } from "~/styles";
-import { utils } from "~/utils";
+import { Dummy } from "../../../components/Dummy";
+import { theme } from "../../../styles";
+import { utils } from "../../../utils";
 import { FlexCenter } from "./FlexCenter";
 
 const {

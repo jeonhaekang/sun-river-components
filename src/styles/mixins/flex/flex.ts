@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
-import { cssHelper } from "../../common";
-import { FlexCenterProps, FlexColumnProps, FlexProps } from "./Flex.types";
+import { cssHelper } from "../common";
+import { FlexCenterProps, FlexColumnProps, FlexProps } from "./flex.types";
 
-export * from "./Flex.types";
+export * from "./flex.types";
 
 export const flex = ({
   display = "flex",

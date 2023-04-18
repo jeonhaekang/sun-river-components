@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { utils } from "~/utils";
+import { utils } from "../../utils";
 import { Dummy } from "./Dummy";
 import { DEFAULT, UNIT } from "./Dummy.constants";
 
 const {
   common,
-  story: { docs, control }
+  story: { docs }
 } = utils;
 
 const meta = {

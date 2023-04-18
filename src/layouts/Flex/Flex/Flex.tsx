@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { FlexProps } from "~/styles";
+import { FlexProps } from "../../../styles";
 import { WithAs } from "../Flex.types";
 import * as Styled from "./Flex.styles";
 

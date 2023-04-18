@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Flex } from "~/layouts";
-import { theme } from "~/styles";
-import { utils } from "~/utils";
-import { getObjectKeys } from "~/utils/common/getObjectProperties";
+import { Flex } from "../../layouts";
+import { theme } from "../../styles";
+import { utils } from "../../utils";
 import { Button } from "./Button";
 import { DEFAULT, VARIANTS } from "./Button.constants";
 
@@ -64,7 +63,7 @@ export const Sizes: Story = {
   render: arg => {
     return (
       <>
-        {getObjectKeys(theme.size).map(size => (
+        {common.getObjectKeys(theme.size).map(size => (
           <Button {...arg} key={size} size={size} />
         ))}
       </>
@@ -74,7 +73,7 @@ export const Sizes: Story = {
 docs.description({
   story: Sizes,
   desc: `선택 가능한 버튼의 크기는 아래와 같습니다. <br/> \`size\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
-    getObjectKeys(theme.size)
+    common.getObjectKeys(theme.size)
   )}를 제공합니다.`
 });
 control.disabled({ story: Sizes, property: "size" });
@@ -94,7 +93,7 @@ export const Colors: Story = {
 docs.description({
   story: Colors,
   desc: `선택 가능한 버튼의 컬러는 아래와 같습니다. <br/> \`color\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
-    getObjectKeys(theme.palettes)
+    common.getObjectKeys(theme.palettes)
   )}를 제공합니다.`
 });
 control.disabled({ story: Colors, property: "size" });

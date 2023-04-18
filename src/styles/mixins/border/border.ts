@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
-import { theme, unitToPx } from "~/styles";
+import { theme } from "../../theme";
+import { unitToPx } from "../common";
 import { BorderProps } from "./border.types";
 
 export const border = ({

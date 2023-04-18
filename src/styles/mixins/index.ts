@@ -1,5 +1,6 @@
 export * from "./border";
 export * from "./common";
-export * from "./layout";
+export * from "./flex";
+export * from "./position";
 export * from "./size";
 export * from "./typography";

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { FlexColumnProps } from "~/styles";
+import { FlexColumnProps } from "../../../styles";
 import { WithAs } from "../Flex.types";
 import * as Styled from "./FlexColumn.styles";
 

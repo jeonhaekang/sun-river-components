@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { CSSProperties } from "react";
-import { utils } from "~/utils";
+import { utils } from "../../../utils";
 
 const CSSSelector = ["base", "hover", "active", "focus"] as const;
 

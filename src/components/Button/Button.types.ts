@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from "react";
-import { PalettesKey, SizeKey } from "~/styles";
-import { OneOf } from "~/utils";
+import { PalettesKey, SizeKey } from "../../styles";
+import { OneOf } from "../../utils";
 import { VARIANTS } from "./Button.constants";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

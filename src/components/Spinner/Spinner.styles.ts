@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { border, setSize, theme } from "~/styles";
+import { border, setSize, theme } from "../../styles";
 import { DEFAULT, SPEED_MAP, WIDTH_MAP } from "./Spinner.constants";
 import { SpinnerProps } from "./Spinner.types";
 
