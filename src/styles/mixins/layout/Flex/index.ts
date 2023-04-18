@@ -1,5 +1,4 @@
 import { css } from "@emotion/react";
-import styled from "@emotion/styled";
 import { cssHelper } from "../../common";
 import { FlexCenterProps, FlexColumnProps, FlexProps } from "./Flex.types";
 
@@ -31,15 +30,3 @@ const center = (props: FlexCenterProps = {}) => {
 
 flex.column = column;
 flex.center = center;
-
-export const Flex = styled.div<FlexProps>`
-  ${props => flex(props)}
-`;
-
-export const FlexColumn = styled.div<Omit<FlexProps, "direction">>`
-  ${props => flex({ ...props, direction: "column" })}
-`;
-
-export const FlexCenter = styled.div<Omit<FlexProps, "align" | "justify">>`
-  ${props => flex({ ...props, align: "center", justify: "center" })}
-`;

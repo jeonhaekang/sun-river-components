@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { FlexCenter } from "~/styles";
+import { FlexCenter } from "~/layouts";
 import { DEFAULT, HEIGHT_UNIT_MAP, WIDTH_UNIT_MAP } from "./Dummy.constants";
 import { DummyProps } from "./Dummy.types";
 

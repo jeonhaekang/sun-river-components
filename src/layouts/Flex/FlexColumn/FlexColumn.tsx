@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import { FlexColumnProps } from "~/styles";
 import { WithAs } from "../Flex.types";
 import * as Styled from "./FlexColumn.styles";
@@ -8,7 +9,7 @@ export const FlexColumn = ({
   justify = "normal",
   gap,
   ...props
-}: WithAs<FlexColumnProps>) => {
+}: WithAs<FlexColumnProps> & PropsWithChildren) => {
   const styleProps = {
     display,
     align,

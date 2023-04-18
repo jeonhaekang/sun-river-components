@@ -1,6 +1,7 @@
 import { Button } from "@components/Button";
 import type { Meta, StoryObj } from "@storybook/react";
-import { FlexColumn, theme } from "~/styles";
+import { FlexColumn } from "~/layouts";
+import { theme } from "~/styles";
 import { utils } from "~/utils";
 import { getObjectKeys } from "~/utils/common/getObjectProperties";
 import { Input } from "./Input";

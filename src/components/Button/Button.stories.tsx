@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Flex, theme } from "~/styles";
+import { Flex } from "~/layouts";
+import { theme } from "~/styles";
 import { utils } from "~/utils";
 import { getObjectKeys } from "~/utils/common/getObjectProperties";
 import { Button } from "./Button";

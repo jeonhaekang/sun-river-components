@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import { FlexProps } from "~/styles";
 import { WithAs } from "../Flex.types";
 import * as Styled from "./Flex.styles";
@@ -9,7 +10,7 @@ export const Flex = ({
   justify = "normal",
   gap,
   ...props
-}: WithAs<FlexProps>) => {
+}: WithAs<FlexProps> & PropsWithChildren) => {
   const styleProps = {
     display,
     direction,

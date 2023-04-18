@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import { FlexCenterProps } from "~/styles";
 import { WithAs } from "../Flex.types";
 import * as Styled from "./FlexCenter.styles";
@@ -7,7 +8,7 @@ export const FlexCenter = ({
   direction = "row",
   gap,
   ...props
-}: WithAs<FlexCenterProps>) => {
+}: WithAs<FlexCenterProps> & PropsWithChildren) => {
   const styleProps = {
     display,
     direction,
