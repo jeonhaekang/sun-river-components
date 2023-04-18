@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { FlexCenter } from "~/layouts";
+import { flex } from "~/styles";
 import { DEFAULT, HEIGHT_UNIT_MAP, WIDTH_UNIT_MAP } from "./Dummy.constants";
 import { DummyProps } from "./Dummy.types";
 
@@ -18,6 +18,8 @@ const getBaseStyle = ({
   `;
 };
 
-export const Dummy = styled(FlexCenter)<DummyProps>`
+export const Dummy = styled.div<DummyProps>`
+  ${flex.center()};
+
   ${props => getBaseStyle(props)}
 `;
