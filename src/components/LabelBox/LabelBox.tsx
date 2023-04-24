@@ -1,9 +1,15 @@
 import { cloneElement } from "react";
 import { FlexColumn } from "../../layouts";
 import { Label } from "../Label";
-import { FormItemProps } from "./LabelBox.types";
+import * as Styled from "./LabelBox.styles";
+import { LabelBoxProps } from "./LabelBox.types";
 
-export const LabelBox = ({ label, required, children }: FormItemProps) => {
+export const LabelBox = ({
+  label,
+  desc,
+  required,
+  children
+}: LabelBoxProps) => {
   const _children = cloneElement(children, { id: label, required });
 
   return (
@@ -15,6 +21,8 @@ export const LabelBox = ({ label, required, children }: FormItemProps) => {
       )}
 
       {_children}
+
+      {desc && <Styled.Desc>{desc}</Styled.Desc>}
     </FlexColumn>
   );
 };

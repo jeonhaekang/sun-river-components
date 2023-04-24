@@ -18,10 +18,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     label: "Label",
+    desc: "description",
+    required: true,
     children: <Input />
   }
 };
 docs.description({
   story: Default,
-  desc: `속성을 선택하지 않은 기본적인 스피너 입니다.`
+  desc: `\`FormItem\`을 \`label\`과 함께 사용할 때 사용합니다. \`label\`의 값이 \`children\`의 \`id\`로 자동 할당됩니다.`
 });
