@@ -4,3 +4,4 @@ export * from "./Input";
 export * from "./Label";
 export * from "./LabelBox";
 export * from "./Spinner";
+export * from "./Typography";
