@@ -24,7 +24,8 @@
   "license": "ISC",
   "dependencies": {
     "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6"
+    "@emotion/styled": "^11.10.6",
+    "react-use": "^17.4.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",

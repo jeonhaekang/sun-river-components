@@ -3,16 +3,22 @@ import type { StoryObj } from "@storybook/react";
 
 const description = <Story>({
   story,
-  desc
+  desc,
+  code,
+  language = "javascript"
 }: {
   story: StoryObj<Story>;
-  desc: string;
+  desc?: string;
+  code?: string;
+  language?: string;
 }) => {
   story.parameters = {
+    ...story.parameters,
     docs: {
       description: {
         story: desc
-      }
+      },
+      source: { language, code }
     }
   };
 };

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ESNext",
     "module": "ESNext",
-    "lib": ["DOM", "ES6", "DOM.Iterable"],
+    "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "allowJs": true,
     "jsx": "react-jsx",
     "sourceMap": true,
