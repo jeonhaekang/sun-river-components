@@ -16,7 +16,9 @@ export const Confirm = ({
       <FlexColumn gap={4}>
         <Typography size="heading4">{title}</Typography>
 
-        <Typography size="paragraph2">{message}</Typography>
+        <Typography size="paragraph2" color="gray4">
+          {message}
+        </Typography>
       </FlexColumn>
 
       <Flex gap={8}>
