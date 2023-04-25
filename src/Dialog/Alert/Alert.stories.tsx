@@ -23,9 +23,7 @@ const meta = {
   decorators: [
     Story => (
       <DialogProvider>
-        <div style={{ height: "5000px" }}>
-          <Story />
-        </div>
+        <Story />
       </DialogProvider>
     )
   ]
