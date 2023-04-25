@@ -1,5 +1,5 @@
 import { PropsWithChildren, useRef } from "react";
-import { useClickAway } from "react-use";
+import { useClickAway, useKeyPressEvent } from "react-use";
 import * as Styled from "./Dialog.styles";
 import { useDialogContext } from "./DialogProvider";
 
@@ -12,6 +12,10 @@ export const Dialog = ({
   const innerRef = useRef<HTMLDivElement>(null);
 
   useClickAway(innerRef, () => hideDialog(dialogId));
+
+  useKeyPressEvent("Escape", () => {
+    hideDialog(dialogId);
+  });
 
   return (
     <Styled.Outer>
