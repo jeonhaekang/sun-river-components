@@ -3,33 +3,31 @@ import { Button } from "../../components";
 import { utils } from "../../utils";
 import { DialogProvider } from "../Dialog.contexts";
 import { useDialog } from "../Dialog.hooks";
-import { Alert } from "./Alert";
-import { DEFAULT } from "./Alert.constants";
-import { AlertProps } from "./Alert.types";
+import { Confirm } from "./Confirm";
+import { DEFAULT } from "./Confirm.constants";
+import { ConfirmProps } from "./Confirm.types";
 
 const {
   story: { docs, control }
 } = utils;
 
-const AlertButton = (props: AlertProps) => {
-  const { alert } = useDialog();
+const ConfirmButton = (props: ConfirmProps) => {
+  const { confirm } = useDialog();
 
-  return <Button label="얼럿 호출" onClick={() => alert(props)} />;
+  return <Button label="컨펌 호출" onClick={() => confirm(props)} />;
 };
 
 const meta = {
-  component: Alert,
+  component: Confirm,
   tags: ["autodocs"],
   decorators: [
     Story => (
       <DialogProvider>
-        <div style={{ height: "5000px" }}>
-          <Story />
-        </div>
+        <Story />
       </DialogProvider>
     )
   ]
-} satisfies Meta<typeof Alert>;
+} satisfies Meta<typeof Confirm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -40,7 +38,7 @@ export const Default: Story = {
     message: "메세지",
     ...DEFAULT
   },
-  render: args => <AlertButton {...args} />
+  render: args => <ConfirmButton {...args} />
 };
 docs.description({
   story: Default,

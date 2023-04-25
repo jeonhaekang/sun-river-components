@@ -5,7 +5,7 @@ const description = <Story>({
   story,
   desc,
   code,
-  language = "javascript"
+  language = "jsx"
 }: {
   story: StoryObj<Story>;
   desc?: string;

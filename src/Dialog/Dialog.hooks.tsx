@@ -1,8 +1,10 @@
 import { ReactNode, useCallback, useRef } from "react";
 import { Alert } from "./Alert";
 import { AlertProps } from "./Alert/Alert.types";
+import { Confirm } from "./Confirm";
+import { ConfirmProps } from "./Confirm/Confirm.types";
 import { Dialog } from "./Dialog";
-import { useDialogContext } from "./DialogProvider";
+import { useDialogContext } from "./Dialog.contexts";
 
 export const useDialog = () => {
   const { showDialog, hideDialog } = useDialogContext();
@@ -45,7 +47,27 @@ export const useDialog = () => {
     [hideDialog, render]
   );
 
+  const confirm = useCallback(
+    (props: Omit<ConfirmProps, "onConfirm" | "onCancel">) => {
+      render((dialogId, resolve) => (
+        <Confirm
+          {...props}
+          onConfirm={() => {
+            resolve(true);
+            hideDialog(dialogId);
+          }}
+          onCancel={() => {
+            resolve(false);
+            hideDialog(dialogId);
+          }}
+        />
+      ));
+    },
+    [hideDialog, render]
+  );
+
   return {
-    alert
+    alert,
+    confirm
   };
 };

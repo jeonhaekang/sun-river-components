@@ -1,7 +1,7 @@
 import { PropsWithChildren, useRef } from "react";
-import { useClickAway, useKeyPressEvent } from "react-use";
+import { useClickAway, useKeyPressEvent, useLockBodyScroll } from "react-use";
+import { useDialogContext } from "./Dialog.contexts";
 import * as Styled from "./Dialog.styles";
-import { useDialogContext } from "./DialogProvider";
 
 export const Dialog = ({
   dialogId,
@@ -16,6 +16,8 @@ export const Dialog = ({
   useKeyPressEvent("Escape", () => {
     hideDialog(dialogId);
   });
+
+  useLockBodyScroll(true);
 
   return (
     <Styled.Outer>
