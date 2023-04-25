@@ -14,7 +14,14 @@ const {
 const AlertButton = (props: AlertProps) => {
   const { alert } = useDialog();
 
-  return <Button label="얼럿 호출" onClick={() => alert(props)} />;
+  return (
+    <Button
+      label="얼럿 호출"
+      onClick={async () => {
+        await alert(props);
+      }}
+    />
+  );
 };
 
 const meta = {

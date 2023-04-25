@@ -34,7 +34,7 @@ export const useDialog = () => {
 
   const alert = useCallback(
     (props: Omit<AlertProps, "onConfirm">) => {
-      render((dialogId, resolve) => (
+      return render((dialogId, resolve) => (
         <Alert
           {...props}
           onConfirm={() => {
@@ -49,7 +49,7 @@ export const useDialog = () => {
 
   const confirm = useCallback(
     (props: Omit<ConfirmProps, "onConfirm" | "onCancel">) => {
-      render((dialogId, resolve) => (
+      return render((dialogId, resolve) => (
         <Confirm
           {...props}
           onConfirm={() => {
