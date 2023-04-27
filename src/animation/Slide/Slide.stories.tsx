@@ -28,5 +28,5 @@ export const Default: Story = {
 };
 docs.description({
   story: Default,
-  desc: `\`Slide\`애니메이션 효과를 제공합니다.`
+  desc: `\`Slide\`애니메이션 효과를 제공합니다. <br/> \`Scale\`, \`Fade\`와 혼합하여 사용할 수 있습니다.`
 });

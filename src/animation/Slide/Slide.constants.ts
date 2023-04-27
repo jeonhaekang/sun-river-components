@@ -1,15 +1,15 @@
 import { ANIMATION_DEFAULT } from "../Animation.constants";
 
-export const DIRECTION = ["up", "right", "down", "left"] as const;
+export const DIRECTION = ["top", "right", "bottom", "left"] as const;
 
 export const SLIDE_DEFAULT = {
   ...ANIMATION_DEFAULT,
-  direction: "up"
+  direction: "top"
 } as const;
 
 export const TRANSLATE_MAP = {
-  up: { prefix: "-", translate: "translateY" },
+  top: { prefix: "-", translate: "translateY" },
   right: { prefix: "", translate: "translateX" },
-  down: { prefix: "", translate: "translateY" },
+  bottom: { prefix: "", translate: "translateY" },
   left: { prefix: "-", translate: "translateX" }
 };
