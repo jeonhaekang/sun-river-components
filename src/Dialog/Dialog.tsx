@@ -1,7 +1,6 @@
 import { PropsWithChildren, useRef } from "react";
-import { useClickAway, useKeyPressEvent, useLockBodyScroll } from "react-use";
-import { Fade } from "../animation";
-import { Slide } from "../animation/Slide";
+import { Fade, Slide } from "../animation";
+import { useBodyScrollLock, useClickAway, useKeyPressEvent } from "../hooks";
 import { FlexCenter } from "../layouts";
 import { useDialogContext } from "./Dialog.contexts";
 import * as Styled from "./Dialog.styles";
@@ -20,7 +19,7 @@ export const Dialog = ({
     hideDialog(dialogId);
   });
 
-  useLockBodyScroll(true);
+  useBodyScrollLock(true);
 
   return (
     <Styled.Outer>
