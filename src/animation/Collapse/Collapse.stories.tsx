@@ -1,32 +1,31 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Dummy } from "../../components";
 import { utils } from "../../utils";
-import { Scale } from "./Scale";
-import { SCALE_DEFAULT } from "./Scale.constants";
+import { Collapse } from "./Collapse";
 
 const {
   story: { docs }
 } = utils;
 
 const meta = {
-  component: Scale,
+  component: Collapse,
   tags: ["autodocs"]
-} satisfies Meta<typeof Scale>;
+} satisfies Meta<typeof Collapse>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    ...SCALE_DEFAULT
+    open: true
   },
   render: args => (
-    <Scale {...args}>
+    <Collapse {...args}>
       <Dummy />
-    </Scale>
+    </Collapse>
   )
 };
 docs.description({
   story: Default,
-  desc: `\`Scale\`애니메이션 효과를 제공합니다. 다른 애니메이션 컴포넌트와 혼합하여 사용할 수 있습니다.`
+  desc: `\`Collapse\`애니메이션 효과를 제공합니다. 다른 애니메이션 컴포넌트와 혼합하여 사용할 수 있습니다.`
 });
