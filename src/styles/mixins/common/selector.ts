@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { CSSProperties } from "react";
 import { utils } from "../../../utils";
 
-const CSSSelector = ["base", "hover", "active", "focus"] as const;
+const CSSSelector = ["base", "hover", "active", "focus", "checked"] as const;
 
 export type CSSSelectorOptions<CSSProperty extends keyof CSSProperties> = {
   [CSSSelector in (typeof CSSSelector)[number]]?: CSSProperties[CSSProperty];
