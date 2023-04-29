@@ -7,4 +7,5 @@ export * from "./LabelBox";
 export * from "./Radio";
 export * from "./Spinner";
 export * from "./Switch";
+export * from "./TextArea";
 export * from "./Typography";

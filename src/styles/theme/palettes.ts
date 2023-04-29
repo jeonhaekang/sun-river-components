@@ -22,7 +22,7 @@ export const orange = {
   active: "#c76b00",
   border: "#fde7cc",
   background: "#fef6e8",
-  focused: "0px 0px 2px 2px rgba(233, 44, 44, 0.15)"
+  focused: "0px 0px 2px 2px rgba(249, 134, 0, 0.15)"
 } as const;
 
 export const red = {
@@ -31,7 +31,7 @@ export const red = {
   active: "#ba2323",
   border: "#fbd5d5",
   background: "#fdebeb",
-  focused: "0px 0px 2px 2px rgba(249, 134, 0, 0.15)"
+  focused: "0px 0px 2px 2px rgba(233, 44, 44, 0.15)"
 } as const;
 
 const palettes = {
