@@ -1,15 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { utils } from "../../utils";
 import { Input } from "../Input";
+import { TextArea } from "../TextArea";
 import { LabelBox } from "./LabelBox";
 
 const {
   story: { docs }
 } = utils;
 
+const childrenOptions = {
+  input: <Input />,
+  textarea: <TextArea />
+};
+
 const meta = {
   component: LabelBox,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
+  argTypes: {
+    children: {
+      control: "radio",
+      options: childrenOptions
+    }
+  }
 } satisfies Meta<typeof LabelBox>;
 
 export default meta;
