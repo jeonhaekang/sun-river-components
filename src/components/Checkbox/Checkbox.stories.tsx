@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Flex } from "../../layouts";
 import { theme } from "../../styles";
 import { utils } from "../../utils";
 import { Checkbox } from "./Checkbox";
@@ -11,7 +12,14 @@ const {
 
 const meta = {
   component: Checkbox,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
+  decorators: [
+    Story => (
+      <Flex gap={24}>
+        <Story />
+      </Flex>
+    )
+  ]
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
@@ -19,7 +27,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    ...CHECKBOX_DEFAULT
+    ...CHECKBOX_DEFAULT,
+    children: "label"
   }
 };
 docs.description({
@@ -33,7 +42,9 @@ export const Colors: Story = {
     return (
       <>
         {common.getObjectKeys(theme.palettes).map(color => (
-          <Checkbox {...arg} color={color} defaultChecked />
+          <Checkbox {...arg} color={color} defaultChecked>
+            {color}
+          </Checkbox>
         ))}
       </>
     );
@@ -56,7 +67,9 @@ export const Marks: Story = {
     return (
       <>
         {CHECKBOX_MARK.map(mark => (
-          <Checkbox {...arg} mark={mark} defaultChecked />
+          <Checkbox {...arg} mark={mark} defaultChecked>
+            {mark}
+          </Checkbox>
         ))}
       </>
     );

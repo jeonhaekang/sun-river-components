@@ -1,10 +1,12 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { position, setSelectorStyle, setSize, theme } from "../../styles";
+import { flex, position, setSelectorStyle, setSize, theme } from "../../styles";
+import { Label } from "../Label";
 import { CHECKBOX_DEFAULT, CHECKBOX_SIZE } from "./Checkbox.constants";
 import { CheckboxProps } from "./Checkbox.types";
 
 const resetStyle = css`
+  margin: 0;
   appearance: none;
 `;
 
@@ -98,4 +100,8 @@ export const CheckBox = styled.input<CheckboxProps>`
   ${resetStyle}
 
   ${props => getBaseStyle(props)}
+`;
+
+export const CheckBoxLabel = styled(Label)`
+  ${flex({ display: "inline-flex", gap: 8 })}
 `;
