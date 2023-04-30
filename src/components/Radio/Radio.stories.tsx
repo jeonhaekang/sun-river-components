@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Flex } from "../../layouts";
 import { theme } from "../../styles";
 import { utils } from "../../utils";
 import { Radio } from "./Radio";
@@ -11,7 +12,14 @@ const {
 
 const meta = {
   component: Radio,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
+  decorators: [
+    Story => (
+      <Flex gap={24}>
+        <Story />
+      </Flex>
+    )
+  ]
 } satisfies Meta<typeof Radio>;
 
 export default meta;
@@ -19,7 +27,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    ...RADIO_DEFAULT
+    ...RADIO_DEFAULT,
+    children: "label"
   }
 };
 docs.description({
@@ -33,7 +42,9 @@ export const Colors: Story = {
     return (
       <>
         {common.getObjectKeys(theme.palettes).map(color => (
-          <Radio {...arg} color={color} defaultChecked />
+          <Radio {...arg} color={color} defaultChecked>
+            {color}
+          </Radio>
         ))}
       </>
     );

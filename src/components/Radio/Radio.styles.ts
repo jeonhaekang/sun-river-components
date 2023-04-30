@@ -1,10 +1,12 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { position, setSelectorStyle, setSize, theme } from "../../styles";
+import { flex, position, setSelectorStyle, setSize, theme } from "../../styles";
+import { Label } from "../Label";
 import { RADIO_DEFAULT } from "./Radio.constants";
 import { RadioProps } from "./Radio.types";
 
 const resetStyle = css`
+  margin: 0;
   appearance: none;
 `;
 
@@ -54,4 +56,8 @@ export const Radio = styled.input<RadioProps>`
   ${resetStyle}
 
   ${props => getBaseStyle(props)}
+`;
+
+export const RadioLabel = styled(Label)`
+  ${flex({ display: "inline-flex", gap: 8 })}
 `;
