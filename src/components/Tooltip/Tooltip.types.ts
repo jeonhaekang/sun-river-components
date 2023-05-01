@@ -6,6 +6,11 @@ export interface Position {
   right?: number | "auto";
   bottom?: number | "auto";
   left?: number | "auto";
+  x?: number;
+}
+
+export interface FixPosition {
+  x?: number;
 }
 
 export interface TooltipProps {
@@ -18,4 +23,9 @@ export interface TooltipProps {
    * @default center
    */
   anchor?: OneOf<typeof TOOLTIP_ANCHOR>;
+}
+
+export interface TooltipStyleProps extends TooltipProps {
+  position: Position;
+  fixPosition: FixPosition;
 }

@@ -12,15 +12,22 @@ const {
 const meta = {
   component: Tooltip,
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      story: {
+        inline: true,
+        iframeHeight: "100px"
+      }
+    }
+  },
   decorators: [
     Story => (
       <div
         style={{
-          padding: "700px 700px",
+          padding: "100px 400px",
           display: "flex",
-          justifyContent: "center"
+          justifyContent: "flex-end"
         }}
-        // style={{ padding: "50px" }}
       >
         <Story />
       </div>
