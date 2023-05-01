@@ -1,3 +1,4 @@
+import { ColorsKey } from "../../styles";
 import { OneOf } from "../../utils";
 import { TOOLTIP_ANCHOR, TOOLTIP_DIRECTION } from "./Tooltip.constants";
 
@@ -6,15 +7,14 @@ export interface Position {
   right?: number | "auto";
   bottom?: number | "auto";
   left?: number | "auto";
-  x?: number;
 }
 
-export interface FixPosition {
+export interface ShiftPosition {
   x?: number;
 }
 
 export interface TooltipProps {
-  color?: "white" | "black";
+  color?: ColorsKey;
   /**
    * @default bottom
    */
@@ -27,5 +27,5 @@ export interface TooltipProps {
 
 export interface TooltipStyleProps extends TooltipProps {
   position: Position;
-  fixPosition: FixPosition;
+  shiftPosition: ShiftPosition;
 }

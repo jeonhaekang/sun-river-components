@@ -7,18 +7,23 @@ export const Tooltip = ({
   children,
   ...props
 }: PropsWithElement<TooltipProps>) => {
-  const { position, translate, anchorRef, targetRef } = useTooltip(props);
+  const { position, shiftPosition, anchorRef, targetRef } = useTooltip(props);
+
+  const styleProps = {
+    position,
+    shiftPosition
+  };
+
+  const mergedProps = {
+    ...props,
+    ...styleProps
+  };
 
   return (
     <Styled.TooltipContainer ref={anchorRef}>
       {children}
 
-      <Styled.Tooltip
-        {...props}
-        position={position}
-        fixPosition={translate}
-        ref={targetRef}
-      >
+      <Styled.Tooltip {...mergedProps} ref={targetRef}>
         위 코드에서는 newX와 maxX 값을 사용하여
       </Styled.Tooltip>
     </Styled.TooltipContainer>

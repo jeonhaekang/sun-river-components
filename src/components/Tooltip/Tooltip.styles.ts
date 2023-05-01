@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { position, setTypography, theme } from "../../styles";
-import { TOOLTIP_COLOR_MAP } from "./Tooltip.constants";
+import { TOOLTIP_BLACK_FONT_COLOR } from "./Tooltip.constants";
 import { TooltipStyleProps } from "./Tooltip.types";
 
 export const TooltipContainer = styled.div`
@@ -13,17 +13,14 @@ export const TooltipContainer = styled.div`
 const getTooltipBaseStyle = ({
   color = "black",
   position: _position,
-  fixPosition
+  shiftPosition
 }: TooltipStyleProps) => {
-  const { effect } = theme;
-  const { backgroundColor, fontColor } = TOOLTIP_COLOR_MAP[color];
+  const { colors, effect } = theme;
 
   return css`
     display: inline-flex;
 
     ${position.absolute(_position)}
-
-    transform: translate3d(${fixPosition.x}px, 0, 0);
 
     width: 100px;
 
@@ -31,12 +28,14 @@ const getTooltipBaseStyle = ({
 
     border-radius: 4px;
 
-    background-color: ${backgroundColor};
+    background-color: ${colors[color]};
 
     box-shadow: ${effect.shadow.drop3};
 
     ${setTypography("paragraph3")}
-    color: ${fontColor};
+    color: ${TOOLTIP_BLACK_FONT_COLOR.includes(color) ? "black" : "white"};
+
+    transform: translate3d(${shiftPosition.x}px, 0, 0);
   `;
 };
 

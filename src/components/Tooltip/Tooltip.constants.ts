@@ -4,16 +4,7 @@ export const TOOLTIP_EVENTS = ["scroll", "resize"] as const;
 
 export const TOOLTIP_GAP = 10;
 
-export const TOOLTIP_COLOR_MAP = {
-  white: {
-    backgroundColor: "white",
-    fontColor: "black"
-  },
-  black: {
-    backgroundColor: "black",
-    fontColor: "white"
-  }
-} as const;
+export const TOOLTIP_BLACK_FONT_COLOR = ["white", "gray1", "gray2"];
 
 export const TOOLTIP_DIRECTION = ["top", "bottom"] as const;
 

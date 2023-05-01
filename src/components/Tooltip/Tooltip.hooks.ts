@@ -5,14 +5,14 @@ import {
   TOOLTIP_GAP,
   TOOLTIP_INIT_POSITION
 } from "./Tooltip.constants";
-import { FixPosition, Position, TooltipProps } from "./Tooltip.types";
+import { Position, ShiftPosition, TooltipProps } from "./Tooltip.types";
 
 export const useTooltip = ({
   direction = TOOLTIP_DEFAULT.direction,
   anchor = TOOLTIP_DEFAULT.anchor
 }: TooltipProps) => {
   const [position, setPosition] = useState<Position>(TOOLTIP_INIT_POSITION);
-  const [translate, setTranslate] = useState<FixPosition>({ x: 0 });
+  const [shiftPosition, setShiftPosition] = useState<ShiftPosition>({ x: 0 });
 
   const anchorRef = useRef<HTMLDivElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -51,7 +51,7 @@ export const useTooltip = ({
     }
     setPosition(_position);
 
-    // translate logic
+    // shiftPosition logic
     let x = 0;
     const limitPos = targetRect.width - anchorRect.width;
     switch (anchor) {
@@ -88,7 +88,7 @@ export const useTooltip = ({
       }
     }
 
-    setTranslate({ x });
+    setShiftPosition({ x });
   }, [anchor, direction]);
 
   useEffect(() => {
@@ -105,5 +105,5 @@ export const useTooltip = ({
     };
   }, [updatePosition]);
 
-  return { position, translate, anchorRef, targetRef };
+  return { position, shiftPosition, anchorRef, targetRef };
 };
