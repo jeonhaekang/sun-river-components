@@ -1,11 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import {
-  TOOLTIP_DEFAULT,
-  TOOLTIP_EVENTS,
-  TOOLTIP_GAP,
-  TOOLTIP_INIT_POSITION
-} from "./Tooltip.constants";
+import { TOOLTIP_DEFAULT, TOOLTIP_INIT_POSITION } from "./Tooltip.constants";
 import { FixPosition, Position, TooltipProps } from "./Tooltip.types";
+
+const EVENTS = ["scroll", "resize"] as const;
 
 export const useTooltip = ({
   direction = TOOLTIP_DEFAULT.direction,
@@ -23,14 +20,13 @@ export const useTooltip = ({
     const anchorRect = anchorRef.current.getBoundingClientRect();
     const targetRect = targetRef.current.getBoundingClientRect();
 
-    // position logic
     const _position = { ...TOOLTIP_INIT_POSITION };
 
-    const isTopOver = anchorRect.top < targetRect.height + TOOLTIP_GAP;
+    const isTopOver = anchorRect.top < targetRect.height;
     const isBottomOver =
-      window.innerHeight - anchorRect.bottom < targetRect.height + TOOLTIP_GAP;
+      window.innerHeight - anchorRect.bottom < targetRect.height;
 
-    let __position: keyof Position = "bottom";
+    let __position: keyof Position = "top";
     switch (direction) {
       case "top":
         __position = isTopOver && !isBottomOver ? "bottom" : "top";
@@ -39,7 +35,7 @@ export const useTooltip = ({
         __position = !isTopOver && isBottomOver ? "top" : "bottom";
         break;
     }
-    _position[__position] = (targetRect.height + TOOLTIP_GAP) * -1;
+    _position[__position] = targetRect.height * -1;
 
     switch (anchor) {
       case "right":
@@ -49,11 +45,25 @@ export const useTooltip = ({
       default:
         _position.left = anchorRect.width / 2 - targetRect.width / 2;
     }
-    setPosition(_position);
 
-    // translate logic
+    setPosition(prev => {
+      if (JSON.stringify(prev) !== JSON.stringify(_position)) {
+        return _position;
+      }
+      return prev;
+    });
+  }, [anchor, direction]);
+
+  const updateTranslate = useCallback(() => {
+    if (!anchorRef.current || !targetRef.current) return;
+
+    const anchorRect = anchorRef.current.getBoundingClientRect();
+    const targetRect = targetRef.current.getBoundingClientRect();
+
     let x = 0;
+
     const limitPos = targetRect.width - anchorRect.width;
+
     switch (anchor) {
       case "right": {
         const overLeftPos = anchorRect.right - targetRect.width;
@@ -89,21 +99,26 @@ export const useTooltip = ({
     }
 
     setTranslate({ x });
-  }, [anchor, direction]);
+  }, [anchor]);
+
+  const update = useCallback(() => {
+    updatePosition();
+    updateTranslate();
+  }, [updatePosition, updateTranslate]);
 
   useEffect(() => {
-    updatePosition();
+    update();
 
-    TOOLTIP_EVENTS.forEach(event => {
-      window.addEventListener(event, updatePosition);
+    EVENTS.forEach(event => {
+      window.addEventListener(event, update);
     });
 
     return () => {
-      TOOLTIP_EVENTS.forEach(event => {
-        window.removeEventListener(event, updatePosition);
+      EVENTS.forEach(event => {
+        window.removeEventListener(event, update);
       });
     };
-  }, [updatePosition]);
+  }, [update]);
 
   return { position, translate, anchorRef, targetRef };
 };

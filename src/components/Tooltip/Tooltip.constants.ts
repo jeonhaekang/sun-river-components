@@ -1,5 +1,9 @@
 import { Position } from "./Tooltip.types";
 
+export const TOOLTIP_EVENTS = ["scroll", "resize"] as const;
+
+export const TOOLTIP_GAP = 10;
+
 export const TOOLTIP_COLOR_MAP = {
   white: {
     backgroundColor: "white",
