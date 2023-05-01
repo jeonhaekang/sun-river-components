@@ -11,27 +11,14 @@ export const TOOLTIP_COLOR_MAP = {
   }
 } as const;
 
-// export const TOOLTIP_DIRECTION = ["top", "right", "bottom", "left"] as const;
+export const TOOLTIP_DIRECTION = ["top", "bottom"] as const;
 
-// export const TOOLTIP_ANCHOR = ["start", "center", "end"] as const;
-export const TOOLTIP_ANCHOR = [
-  "topLeft",
-  "topCenter",
-  "topRight",
-  "rightTop",
-  "rightMiddle",
-  "rightBottom",
-  "bottomLeft",
-  "bottomCenter",
-  "bottomRight",
-  "leftTop",
-  "leftMiddle",
-  "leftBottom"
-] as const;
+export const TOOLTIP_ANCHOR = ["left", "right", "center"] as const;
 
 export const TOOLTIP_DEFAULT = {
   color: "black",
-  anchor: "bottomCenter"
+  direction: "bottom",
+  anchor: "center"
 } as const;
 
 export const TOOLTIP_INIT_POSITION: Position = {

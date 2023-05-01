@@ -1,18 +1,19 @@
 import { OneOf } from "../../utils";
-import { TOOLTIP_ANCHOR } from "./Tooltip.constants";
+import { TOOLTIP_ANCHOR, TOOLTIP_DIRECTION } from "./Tooltip.constants";
 
 export interface Position {
   top?: number | "auto";
   right?: number | "auto";
   bottom?: number | "auto";
   left?: number | "auto";
-
-  // x: number;
-  // y: number;
 }
 
 export interface TooltipProps {
   color?: "white" | "black";
+  /**
+   * @default bottom
+   */
+  direction?: OneOf<typeof TOOLTIP_DIRECTION>;
   /**
    * @default center
    */

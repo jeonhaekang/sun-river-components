@@ -15,8 +15,12 @@ const meta = {
   decorators: [
     Story => (
       <div
-        // style={{ padding: "50px", display: "flex", justifyContent: "flex-end" }}
-        style={{ padding: "50px" }}
+        style={{
+          padding: "700px 700px",
+          display: "flex",
+          justifyContent: "center"
+        }}
+        // style={{ padding: "50px" }}
       >
         <Story />
       </div>

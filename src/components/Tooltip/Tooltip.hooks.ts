@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { splitCamelCase } from "../../utils/common/splitCamelCase";
 import { TOOLTIP_DEFAULT, TOOLTIP_INIT_POSITION } from "./Tooltip.constants";
 import { Position, TooltipProps } from "./Tooltip.types";
 
 export const useTooltip = ({
+  direction = TOOLTIP_DEFAULT.direction,
   anchor = TOOLTIP_DEFAULT.anchor
 }: TooltipProps) => {
   const [position, setPosition] = useState<Position>(TOOLTIP_INIT_POSITION);
@@ -17,54 +17,49 @@ export const useTooltip = ({
 
     if (!_anchorRef || !_targetRef) return;
 
-    const { clientHeight: anchorHeight, clientWidth: anchorWidth } = _anchorRef;
-    const { clientHeight: targetHeight, clientWidth: targetWidth } = _targetRef;
+    const anchorRect = _anchorRef.getBoundingClientRect();
+    const targetRect = _targetRef.getBoundingClientRect();
 
     const _position = { ...TOOLTIP_INIT_POSITION };
 
-    const [direction, position] = splitCamelCase(anchor);
+    const isTopOver = anchorRect.top < targetRect.height;
 
+    const isBottomOver =
+      window.innerHeight - anchorRect.bottom < targetRect.height;
+
+    let __position: keyof Position = "top";
     switch (direction) {
       case "top":
-        _position.top = (targetHeight + 10) * -1;
+        __position = isTopOver && !isBottomOver ? "bottom" : "top";
         break;
-      case "left":
-        _position.left = (targetWidth + 10) * -1;
-        break;
-      case "right":
-        _position.right = (targetWidth + 10) * -1;
-        break;
-      case "bottom":
-        _position.bottom = (targetHeight + 10) * -1;
+      default:
+        __position = !isTopOver && isBottomOver ? "top" : "bottom";
         break;
     }
+    _position[__position] = targetRect.height * -1;
 
-    switch (position) {
-      case "Right":
-        _position.right = 0;
+    switch (anchor) {
+      case "right":
+      case "left":
+        _position[anchor] = 0;
         break;
-      case "Left":
-        _position.left = 0;
-        break;
-      case "Bottom":
-        _position.bottom = 0;
-        break;
-      case "Top":
-        _position.top = 0;
-        break;
-      case "Center":
-        _position.left = anchorWidth / 2 - targetWidth / 2;
-        break;
-      case "Middle":
-        _position.top = anchorHeight / 2 - targetHeight / 2;
-        break;
+      default:
+        _position.left = anchorRect.width / 2 - targetRect.width / 2;
     }
 
     setPosition(_position);
-  }, [anchor]);
+  }, [anchor, direction]);
 
   useEffect(() => {
     updatePosition();
+
+    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", updatePosition);
+
+    return () => {
+      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", updatePosition);
+    };
   }, [updatePosition]);
 
   return { position, anchorRef, targetRef };
