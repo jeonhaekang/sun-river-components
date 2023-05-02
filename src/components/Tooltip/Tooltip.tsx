@@ -1,13 +1,19 @@
+import { useAutoPosition } from "../../hooks";
 import { PropsWithElement } from "../../utils";
-import { useTooltip } from "./Tooltip.hooks";
+import { TOOLTIP_DEFAULT } from "./Tooltip.constants";
 import * as Styled from "./Tooltip.styles";
 import { TooltipProps } from "./Tooltip.types";
 
 export const Tooltip = ({
   children,
+  direction = TOOLTIP_DEFAULT.direction,
+  anchor = TOOLTIP_DEFAULT.anchor,
   ...props
 }: PropsWithElement<TooltipProps>) => {
-  const { position, shiftPosition, anchorRef, targetRef } = useTooltip(props);
+  const { position, shiftPosition, anchorRef, targetRef } = useAutoPosition({
+    direction,
+    anchor
+  });
 
   const styleProps = {
     position,
@@ -24,7 +30,7 @@ export const Tooltip = ({
       {children}
 
       <Styled.Tooltip {...mergedProps} ref={targetRef}>
-        위 코드에서는 newX와 maxX 값을 사용하여
+        tooltip
       </Styled.Tooltip>
     </Styled.TooltipContainer>
   );

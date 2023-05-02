@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     ...TOOLTIP_DEFAULT,
-    children: <Button label="button" />
+    children: <Button label="showTooltip" />
   }
 };
 docs.description({

@@ -22,8 +22,6 @@ const getTooltipBaseStyle = ({
 
     ${position.absolute(_position)}
 
-    width: 100px;
-
     padding: 4px 8px;
 
     border-radius: 4px;

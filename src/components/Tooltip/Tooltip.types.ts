@@ -1,17 +1,10 @@
 import { ColorsKey } from "../../styles";
-import { OneOf } from "../../utils";
-import { TOOLTIP_ANCHOR, TOOLTIP_DIRECTION } from "./Tooltip.constants";
-
-export interface Position {
-  top?: number | "auto";
-  right?: number | "auto";
-  bottom?: number | "auto";
-  left?: number | "auto";
-}
-
-export interface ShiftPosition {
-  x?: number;
-}
+import { OneOf, Position, Translate } from "../../utils";
+import {
+  TOOLTIP_ANCHOR,
+  TOOLTIP_DIRECTION,
+  TOOLTIP_TRIGGER
+} from "./Tooltip.constants";
 
 export interface TooltipProps {
   color?: ColorsKey;
@@ -23,9 +16,13 @@ export interface TooltipProps {
    * @default center
    */
   anchor?: OneOf<typeof TOOLTIP_ANCHOR>;
+  /**
+   * @default hover
+   */
+  trigger?: OneOf<typeof TOOLTIP_TRIGGER>;
 }
 
 export interface TooltipStyleProps extends TooltipProps {
   position: Position;
-  shiftPosition: ShiftPosition;
+  shiftPosition: Translate;
 }
