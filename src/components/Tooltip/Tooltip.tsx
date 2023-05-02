@@ -1,6 +1,7 @@
 import { useAutoPosition } from "../../hooks";
 import { PropsWithElement } from "../../utils";
 import { TOOLTIP_DEFAULT } from "./Tooltip.constants";
+import { useTooltip } from "./Tooltip.hooks";
 import * as Styled from "./Tooltip.styles";
 import { TooltipProps } from "./Tooltip.types";
 
@@ -10,9 +11,12 @@ export const Tooltip = ({
   anchor = TOOLTIP_DEFAULT.anchor,
   ...props
 }: PropsWithElement<TooltipProps>) => {
+  const app = useTooltip();
+
   const { position, shiftPosition, anchorRef, targetRef } = useAutoPosition({
     direction,
-    anchor
+    anchor,
+    trigger: app.isActive
   });
 
   const styleProps = {
@@ -26,12 +30,14 @@ export const Tooltip = ({
   };
 
   return (
-    <Styled.TooltipContainer ref={anchorRef}>
+    <Styled.TooltipContainer ref={anchorRef} {...app.event}>
       {children}
 
-      <Styled.Tooltip {...mergedProps} ref={targetRef}>
-        tooltip
-      </Styled.Tooltip>
+      {app.isActive && (
+        <Styled.Tooltip {...mergedProps} ref={targetRef}>
+          tooltip
+        </Styled.Tooltip>
+      )}
     </Styled.TooltipContainer>
   );
 };

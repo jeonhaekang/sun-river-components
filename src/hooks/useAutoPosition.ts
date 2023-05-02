@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Position, Translate } from "../utils";
 
@@ -17,10 +18,12 @@ const INIT_TRANSLATE: Translate = {
 
 export const useAutoPosition = ({
   direction,
-  anchor
+  anchor,
+  trigger
 }: {
   direction: "top" | "bottom";
   anchor: "left" | "center" | "right";
+  trigger: boolean;
 }) => {
   const [position, setPosition] = useState(INIT_POSITION);
   const [shiftPosition, setShiftPosition] = useState(INIT_TRANSLATE);
@@ -103,20 +106,22 @@ export const useAutoPosition = ({
   }, [anchor, direction]);
 
   useEffect(() => {
-    updatePosition();
+    if (trigger) {
+      updatePosition();
 
-    const events = ["resize", "scroll"];
+      const events = ["resize", "scroll"];
 
-    events.forEach(event => {
-      window.addEventListener(event, updatePosition);
-    });
-
-    return () => {
       events.forEach(event => {
-        window.removeEventListener(event, updatePosition);
+        window.addEventListener(event, updatePosition);
       });
-    };
-  }, [updatePosition]);
+
+      return () => {
+        events.forEach(event => {
+          window.removeEventListener(event, updatePosition);
+        });
+      };
+    }
+  }, [trigger, updatePosition]);
 
   return { position, shiftPosition, anchorRef, targetRef };
 };
