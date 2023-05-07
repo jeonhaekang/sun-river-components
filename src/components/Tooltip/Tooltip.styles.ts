@@ -1,26 +1,24 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { position, setTypography, theme } from "../../styles";
-import { TOOLTIP_BLACK_FONT_COLOR } from "./Tooltip.constants";
+import { TOOLTIP_BLACK_FONT_COLOR, TOOLTIP_DEFAULT } from "./Tooltip.constants";
 import { TooltipStyleProps } from "./Tooltip.types";
 
 export const TooltipContainer = styled.div`
   position: relative;
-
-  display: inline-flex;
 `;
 
 const getTooltipBaseStyle = ({
-  color = "black",
+  color = TOOLTIP_DEFAULT.color,
   position: _position,
   shiftPosition
 }: TooltipStyleProps) => {
   const { colors, effect } = theme;
 
   return css`
-    display: inline-flex;
+    ${position.fixed(_position)}
 
-    ${position.absolute(_position)}
+    max-width: 200px;
 
     padding: 4px 8px;
 

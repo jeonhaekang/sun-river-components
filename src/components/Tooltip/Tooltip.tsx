@@ -1,5 +1,6 @@
 import { useAutoPosition } from "../../hooks";
 import { PropsWithElement } from "../../utils";
+import { Portal } from "../Portal";
 import { TOOLTIP_DEFAULT } from "./Tooltip.constants";
 import { useTooltip } from "./Tooltip.hooks";
 import * as Styled from "./Tooltip.styles";
@@ -7,9 +8,10 @@ import { TooltipProps } from "./Tooltip.types";
 
 export const Tooltip = ({
   children,
+  color = TOOLTIP_DEFAULT.color,
   direction = TOOLTIP_DEFAULT.direction,
   anchor = TOOLTIP_DEFAULT.anchor,
-  ...props
+  label
 }: PropsWithElement<TooltipProps>) => {
   const app = useTooltip();
 
@@ -20,23 +22,21 @@ export const Tooltip = ({
   });
 
   const styleProps = {
+    color,
     position,
     shiftPosition
   };
 
-  const mergedProps = {
-    ...props,
-    ...styleProps
-  };
-
   return (
-    <Styled.TooltipContainer ref={anchorRef} {...app.event}>
+    <Styled.TooltipContainer ref={anchorRef} {...app.events}>
       {children}
 
       {app.isActive && (
-        <Styled.Tooltip {...mergedProps} ref={targetRef}>
-          tooltip
-        </Styled.Tooltip>
+        <Portal container={document.body}>
+          <Styled.Tooltip {...styleProps} ref={targetRef}>
+            {label}
+          </Styled.Tooltip>
+        </Portal>
       )}
     </Styled.TooltipContainer>
   );

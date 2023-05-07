@@ -44,24 +44,34 @@ export const useAutoPosition = ({
     const isBottomOver =
       window.innerHeight - anchorRect.bottom < targetRect.height + DEFAULT_GAP;
 
-    let __position: keyof Position = "bottom";
+    let _direction = "bottom";
     switch (direction) {
       case "top":
-        __position = isTopOver && !isBottomOver ? "bottom" : "top";
+        _direction = isTopOver && !isBottomOver ? "bottom" : "top";
         break;
       default:
-        __position = !isTopOver && isBottomOver ? "top" : "bottom";
+        _direction = !isTopOver && isBottomOver ? "top" : "bottom";
         break;
     }
-    _position[__position] = (targetRect.height + DEFAULT_GAP) * -1;
+
+    switch (_direction) {
+      case "top":
+        _position.top = anchorRect.top - targetRect.height - DEFAULT_GAP;
+        break;
+      default:
+        _position.top = anchorRect.bottom + DEFAULT_GAP;
+    }
 
     switch (anchor) {
       case "right":
+        _position.left = anchorRect.right - targetRect.width;
+        break;
       case "left":
-        _position[anchor] = 0;
+        _position.left = anchorRect.left;
         break;
       default:
-        _position.left = anchorRect.width / 2 - targetRect.width / 2;
+        _position.left =
+          anchorRect.left + anchorRect.width / 2 - targetRect.width / 2;
     }
     setPosition(_position);
 

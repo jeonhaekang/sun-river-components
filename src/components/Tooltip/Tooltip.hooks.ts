@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 export const useTooltip = () => {
   const [isActive, setIsActive] = useState(false);
 
-  const event = useMemo(
+  const events = useMemo(
     () => ({
       onMouseEnter: () => setIsActive(true),
       onMouseLeave: () => setIsActive(false)
@@ -11,5 +11,5 @@ export const useTooltip = () => {
     []
   );
 
-  return { isActive, event };
+  return { isActive, events };
 };
