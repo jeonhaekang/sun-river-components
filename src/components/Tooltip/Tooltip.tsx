@@ -1,3 +1,4 @@
+import { cloneElement } from "react";
 import { useAutoPosition } from "../../hooks";
 import { PropsWithElement } from "../../utils";
 import { Portal } from "../Portal";
@@ -27,9 +28,11 @@ export const Tooltip = ({
     shiftPosition
   };
 
+  const _children = cloneElement(children, { ref: anchorRef, ...app.events });
+
   return (
-    <Styled.TooltipContainer ref={anchorRef} {...app.events}>
-      {children}
+    <>
+      {_children}
 
       {app.isActive && (
         <Portal container={document.body}>
@@ -38,6 +41,6 @@ export const Tooltip = ({
           </Styled.Tooltip>
         </Portal>
       )}
-    </Styled.TooltipContainer>
+    </>
   );
 };
