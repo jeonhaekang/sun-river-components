@@ -55,7 +55,7 @@ export const Default: Story = {
 };
 docs.description({
   story: Default,
-  desc: `\`type\`을 제외한 \`input\`의 \`props\`를 사용할 수 있습니다.`
+  desc: `기본적인 툴팁 입니다. 툴팁은 여유 공간에 따라 자동적으로 위치가 조절됩니다.`
 });
 
 export const Colors: Story = {
