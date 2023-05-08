@@ -16,11 +16,12 @@ const AlertButton = (props: AlertProps) => {
 
   return (
     <Button
-      label="얼럿 호출"
       onClick={async () => {
         await alert(props);
       }}
-    />
+    >
+      얼럿 호출
+    </Button>
   );
 };
 

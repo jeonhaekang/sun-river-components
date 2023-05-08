@@ -22,9 +22,11 @@ export const Confirm = ({
       </FlexColumn>
 
       <Flex gap={8}>
-        <Button label={confirmLabel} onClick={onConfirm} />
+        <Button onClick={onConfirm}>{confirmLabel}</Button>
 
-        <Button variant="outline" label={cancelLabel} onClick={onCancel} />
+        <Button variant="outline" onClick={onCancel}>
+          {cancelLabel}
+        </Button>
       </Flex>
     </FlexColumn>
   );

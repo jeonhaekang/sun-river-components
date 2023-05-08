@@ -20,7 +20,7 @@ export const Alert = ({
       </FlexColumn>
 
       <Flex>
-        <Button label={confirmLabel} onClick={onConfirm} />
+        <Button onClick={onConfirm}>{confirmLabel}</Button>
       </Flex>
     </FlexColumn>
   );

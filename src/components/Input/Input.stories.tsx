@@ -112,7 +112,7 @@ export const Addon: Story = {
 
         <Input {...arg} leftAddon="http://" rightAddon=".com" />
 
-        <Input {...arg} rightAddon={<Button variant="text" label="Submit" />} />
+        <Input {...arg} rightAddon={<Button variant="text">Submit</Button>} />
       </>
     );
   }

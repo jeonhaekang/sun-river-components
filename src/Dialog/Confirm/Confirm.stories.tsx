@@ -17,7 +17,6 @@ const ConfirmButton = (props: ConfirmProps) => {
 
   return (
     <Button
-      label="컨펌 호출"
       onClick={async () => {
         if (await confirm(props)) {
           console.log("confirm");
@@ -25,7 +24,9 @@ const ConfirmButton = (props: ConfirmProps) => {
           console.log("cancel");
         }
       }}
-    />
+    >
+      컨펌 호출
+    </Button>
   );
 };
 
