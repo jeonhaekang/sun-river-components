@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     ...DEFAULT,
-    label: "Button",
+    children: "Button",
     disabled: false,
     isLoading: false
   }
@@ -44,7 +44,9 @@ export const Variants: Story = {
     return (
       <>
         {VARIANTS.map(variant => (
-          <Button {...arg} key={variant} variant={variant} />
+          <Button {...arg} key={variant} variant={variant}>
+            {variant}
+          </Button>
         ))}
       </>
     );
@@ -64,7 +66,9 @@ export const Sizes: Story = {
     return (
       <>
         {common.getObjectKeys(theme.size).map(size => (
-          <Button {...arg} key={size} size={size} />
+          <Button {...arg} key={size} size={size}>
+            {size}
+          </Button>
         ))}
       </>
     );
@@ -84,7 +88,9 @@ export const Colors: Story = {
     return (
       <>
         {common.getObjectKeys(theme.palettes).map(color => (
-          <Button {...arg} key={color} color={color} />
+          <Button {...arg} key={color} color={color}>
+            {color}
+          </Button>
         ))}
       </>
     );

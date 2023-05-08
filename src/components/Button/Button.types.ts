@@ -5,7 +5,6 @@ import { VARIANTS } from "./Button.constants";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: OneOf<typeof VARIANTS>;
-  label: string;
   size?: SizeKey;
   color?: PalettesKey;
   isLoading?: boolean;

@@ -49,7 +49,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     label: "tooltip",
-    children: <Button label="tooltip" />,
+    children: <Button>tooltip</Button>,
     ...TOOLTIP_DEFAULT
   }
 };
@@ -65,7 +65,7 @@ export const Colors: Story = {
       <>
         {getObjectKeys(theme.colors).map(color => (
           <Tooltip key={color} {...args} label={color} color={color}>
-            <Button label={color} />
+            <Button>{color}</Button>
           </Tooltip>
         ))}
       </>
@@ -93,7 +93,7 @@ export const Direction: Story = {
             label={direction}
             direction={direction}
           >
-            <Button label={direction} />
+            <Button>{direction}</Button>
           </Tooltip>
         ))}
       </>
@@ -114,7 +114,7 @@ export const Anchor: Story = {
       <>
         {TOOLTIP_ANCHOR.map(anchor => (
           <Tooltip key={anchor} {...args} label={anchor} anchor={anchor}>
-            <Button label={anchor} />
+            <Button>{anchor}</Button>
           </Tooltip>
         ))}
       </>

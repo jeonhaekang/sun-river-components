@@ -1,12 +1,15 @@
-import { forwardRef } from "react";
+import { PropsWithChildren, forwardRef } from "react";
 import { DEFAULT } from "./Button.constants";
 import * as Styled from "./Button.styles";
 import type { ButtonProps } from "./Button.types";
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<
+  HTMLButtonElement,
+  PropsWithChildren<ButtonProps>
+>(
   (
     {
-      label,
+      children,
       disabled,
       isLoading,
       variant = DEFAULT.variant,
@@ -33,7 +36,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isLoading || disabled}
         {...mergedProps}
       >
-        {label}
+        {children}
 
         {isLoading && <Styled.ButtonSpinner {...mergedProps} />}
       </Styled.Button>
