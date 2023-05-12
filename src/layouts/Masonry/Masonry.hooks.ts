@@ -21,7 +21,9 @@ export const useMasonry = ({ column = 1, gap = 10 }: MasonryStyleProps) => {
     [itemPositions]
   );
 
-  useEffect(() => {
+  const positionUpdate = useCallback(() => {
+    columnHeights.current = Array(column).fill(0);
+
     const positions = itemsRef.current.map(item => {
       const itemWidth = item.offsetWidth;
 
@@ -40,6 +42,16 @@ export const useMasonry = ({ column = 1, gap = 10 }: MasonryStyleProps) => {
     setMaxHeight(Math.max(...columnHeights.current));
     setItemPositions(positions);
   }, [column, gap]);
+
+  useEffect(() => {
+    positionUpdate();
+
+    window.addEventListener("resize", positionUpdate);
+
+    return () => {
+      window.removeEventListener("resize", positionUpdate);
+    };
+  }, [positionUpdate]);
 
   return {
     maxHeight,
