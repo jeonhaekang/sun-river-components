@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { position, setSize } from "../../styles";
+import { MASONRY_DEFAULT } from "./Masonry.constants";
 import { MasonryStyleProps } from "./Masonry.types";
 
 export const Masonry = styled.div<{ maxHeight: number }>`
@@ -9,7 +10,12 @@ export const Masonry = styled.div<{ maxHeight: number }>`
   ${({ maxHeight }) => setSize("100%", maxHeight)}
 `;
 
-const MasonryItemBase = ({ column = 1, gap = 10, x, y }: MasonryStyleProps) => {
+const MasonryItemBase = ({
+  column = MASONRY_DEFAULT.column,
+  gap = MASONRY_DEFAULT.gap,
+  x,
+  y
+}: MasonryStyleProps) => {
   const _gap = (gap * (column - 1)) / column;
 
   return css`

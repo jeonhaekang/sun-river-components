@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Dummy } from "../../components";
 import { utils } from "../../utils";
 import { Masonry } from "./Masonry";
+import { MASONRY_DEFAULT } from "./Masonry.constants";
 
 const {
   story: { docs, control }
@@ -18,9 +19,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    column: 5,
-    gap: 10,
-    children: Array(40)
+    ...MASONRY_DEFAULT,
+    children: Array(20)
       .fill("")
       .map((_, idx) => (
         <div
@@ -34,3 +34,8 @@ export const Default: Story = {
       ))
   }
 };
+docs.description({
+  story: Default,
+  desc: `Masonry 레이아웃 입니다. 이미지를 배치하기 적절하며, 대표적으로 핀터레스트가 사용하고 있습니다.`
+});
+control.hide({ story: Default, property: "children" });

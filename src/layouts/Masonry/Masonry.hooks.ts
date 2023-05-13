@@ -1,14 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Translate } from "../../utils";
+import { MASONRY_DEFAULT } from "./Masonry.constants";
 import { MasonryStyleProps } from "./Masonry.types";
 
-export const useMasonry = ({ column = 1, gap = 10 }: MasonryStyleProps) => {
-  const columnHeights = useRef(Array(column).fill(0));
-
-  const itemsRef = useRef<HTMLDivElement[]>([]);
-
+export const useMasonry = ({
+  column = MASONRY_DEFAULT.column,
+  gap = MASONRY_DEFAULT.gap
+}: MasonryStyleProps) => {
   const [itemPositions, setItemPositions] = useState<Translate[]>([]);
   const [maxHeight, setMaxHeight] = useState(0);
+
+  const columnHeights = useRef(Array(column).fill(0));
+  const itemsRef = useRef<HTMLDivElement[]>([]);
 
   const itemRegister = useCallback(
     (idx: number) => ({
