@@ -8,7 +8,10 @@ const colors = {
   blue: "#0085ff",
   green: "#00ba34",
   orange: "#f78601",
-  red: "#e92d2c"
+  red: "#e92d2c",
+  coral: "#FF5F45",
+  peach: "#FC6C7C",
+  mustard: "#FEC301"
 } as const;
 
 export default colors;
