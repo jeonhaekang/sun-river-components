@@ -33,7 +33,7 @@ export const Default: Story = {
 };
 docs.description({
   story: Default,
-  desc: `정해진 규격의 Typography를 제공합니다.`
+  desc: `정해진 규격의 \`Typography\`를 제공합니다. \`rem\`을 기반으로 사이즈가 변경됩니다.`
 });
 
 export const Sizes: Story = {

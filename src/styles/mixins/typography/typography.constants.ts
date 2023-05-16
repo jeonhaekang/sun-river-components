@@ -1,4 +1,5 @@
 export const fontSize = {
+  display1: 64,
   heading1: 48,
   heading2: 36,
   heading3: 24,
@@ -11,6 +12,7 @@ export const fontSize = {
 } as const;
 
 export const fontWeight = {
+  display1: 700,
   heading1: 500,
   heading2: 500,
   heading3: 500,
@@ -23,6 +25,7 @@ export const fontWeight = {
 } as const;
 
 export const lineHeight = {
+  display1: 80,
   heading1: 60,
   heading2: 48,
   heading3: 32,
