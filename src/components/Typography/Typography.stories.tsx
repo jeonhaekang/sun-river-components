@@ -54,7 +54,7 @@ docs.description({
     common.getObjectKeys(fontSize)
   )}를 제공합니다.`
 });
-control.disabled({ story: Sizes, property: "size" });
+control.hide({ story: Sizes, property: "size" });
 
 export const Colors: Story = {
   ...Default,
@@ -74,4 +74,24 @@ docs.description({
     common.getObjectKeys(theme.colors)
   )}를 제공합니다.`
 });
-control.disabled({ story: Colors, property: "color" });
+control.hide({ story: Colors, property: "color" });
+
+export const Shadows: Story = {
+  ...Default,
+  render: arg => {
+    return (
+      <>
+        {common.getObjectKeys(theme.effect.shadow).map(shadow => (
+          <Typography {...arg} key={shadow} shadow={shadow} />
+        ))}
+      </>
+    );
+  }
+};
+docs.description({
+  story: Shadows,
+  desc: `선택 가능한 그림자는 아래와 같습니다. <br/> \`shadow\` 속성을 통해 선택할 수 있으며 ${common.propertiesToString(
+    common.getObjectKeys(theme.effect.shadow)
+  )}를 제공합니다.`
+});
+control.hide({ story: Shadows, property: "shadow" });

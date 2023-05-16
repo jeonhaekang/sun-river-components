@@ -1,4 +1,4 @@
-import { ColorsKey, FontSizeKey } from "../../styles";
+import { ColorsKey, FontSizeKey, ShadowKey } from "../../styles";
 
 export interface TypographyProps {
   /**
@@ -9,4 +9,5 @@ export interface TypographyProps {
    * @default black
    */
   color?: ColorsKey;
+  shadow?: ShadowKey;
 }

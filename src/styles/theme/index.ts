@@ -14,4 +14,4 @@ export const theme = {
   zIndex
 };
 
-export { colors, palettes, size };
+export { colors, palettes, size, effect };

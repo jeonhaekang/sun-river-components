@@ -1,5 +1,5 @@
 import { fontSize } from "./mixins";
-import { colors, palettes, size } from "./theme";
+import { colors, effect, palettes, size } from "./theme";
 
 export type Size = typeof size;
 export type SizeKey = keyof Size;
@@ -12,3 +12,6 @@ export type PalettesKey = keyof Palettes;
 
 export type FontSize = typeof fontSize;
 export type FontSizeKey = keyof FontSize;
+
+export type Shadow = typeof effect.shadow;
+export type ShadowKey = keyof Shadow;
