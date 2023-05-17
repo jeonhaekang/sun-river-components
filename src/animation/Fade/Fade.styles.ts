@@ -34,21 +34,33 @@ const getAnimation = (
   `;
 };
 
+export const fade = ({
+  play = ANIMATION_DEFAULT.play,
+  speed = ANIMATION_DEFAULT.speed
+}: AnimationProps) => {
+  let animation;
+
+  switch (play) {
+    case "in":
+      animation = getAnimation("fadeIn", speed);
+      break;
+    case "out":
+      animation = getAnimation("fadeOut", speed);
+      break;
+    default:
+      animation = css`
+        opacity: 0;
+      `;
+  }
+
+  return css`
+    ${keyframes}
+
+    opacity: 0;
+    ${animation}
+  `;
+};
+
 export const Fade = styled.div<AnimationProps>`
-  ${keyframes}
-
-  opacity: 0;
-
-  ${({ play = ANIMATION_DEFAULT.play, speed = ANIMATION_DEFAULT.speed }) => {
-    switch (play) {
-      case "in":
-        return getAnimation("fadeIn", speed);
-      case "out":
-        return getAnimation("fadeOut", speed);
-      default:
-        return css`
-          opacity: 0;
-        `;
-    }
-  }}
+  ${props => fade(props)}
 `;

@@ -1,4 +1,4 @@
 export { Collapse } from "./Collapse";
-export { Fade } from "./Fade";
-export { Scale } from "./Scale";
-export { Slide } from "./Slide";
+export * from "./Fade";
+export * from "./Scale";
+export * from "./Slide";

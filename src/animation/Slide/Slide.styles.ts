@@ -38,27 +38,37 @@ const getAnimation = (name: string, speed: SlideProps["speed"] = "normal") => {
   `;
 };
 
+export const slide = ({
+  play = SLIDE_DEFAULT.play,
+  speed = SLIDE_DEFAULT.speed,
+  direction = SLIDE_DEFAULT.direction
+}: SlideProps) => {
+  const { prefix, translate } = TRANSLATE_MAP[direction];
+
+  let animation;
+
+  switch (play) {
+    case "in":
+      animation = getAnimation("slideIn", speed);
+      break;
+    case "out":
+      animation = getAnimation("slideOut", speed);
+      break;
+    default:
+      animation = css`
+        transform: ${translate}(${`${prefix}100%`});
+      `;
+  }
+
+  return css`
+    display: inline-block;
+
+    ${getSlideKeyframes(direction)}
+
+    ${animation}
+  `;
+};
+
 export const Slide = styled.div<SlideProps>`
-  display: inline-block;
-
-  ${({ direction = SLIDE_DEFAULT.direction }) => getSlideKeyframes(direction)}
-
-  ${({
-    play = SLIDE_DEFAULT.play,
-    speed = SLIDE_DEFAULT.speed,
-    direction = SLIDE_DEFAULT.direction
-  }) => {
-    const { prefix, translate } = TRANSLATE_MAP[direction];
-
-    switch (play) {
-      case "in":
-        return getAnimation("slideIn", speed);
-      case "out":
-        return getAnimation("slideOut", speed);
-      default:
-        return css`
-          transform: ${translate}(${`${prefix}100%`});
-        `;
-    }
-  }}
+  ${props => slide(props)}
 `;
