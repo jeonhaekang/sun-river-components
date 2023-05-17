@@ -7,7 +7,7 @@ export * from "./flex.types";
 export const flex = ({
   display = "flex",
   direction = "row",
-  align = "flex-start",
+  align = "stretch",
   justify = "flex-start",
   gap
 }: FlexProps) => {
