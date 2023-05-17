@@ -12,15 +12,17 @@ export const Alert = ({
   return (
     <FlexColumn gap={16}>
       <FlexColumn gap={4}>
-        <Typography size="heading4">{title}</Typography>
+        <Typography size="heading5">{title}</Typography>
 
-        <Typography size="paragraph2" color="gray4">
+        <Typography size="paragraph3" color="gray4">
           {message}
         </Typography>
       </FlexColumn>
 
       <Flex>
-        <Button onClick={onConfirm}>{confirmLabel}</Button>
+        <Button onClick={onConfirm} size="small">
+          {confirmLabel}
+        </Button>
       </Flex>
     </FlexColumn>
   );

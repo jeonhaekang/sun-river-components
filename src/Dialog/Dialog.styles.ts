@@ -11,9 +11,10 @@ export const Outer = styled.div`
 export const Inner = styled.div`
   ${position.posCenterX({ top: 40 })}
 
-  width: 456px;
+  width: 300px;
+  box-sizing: border-box;
 
-  padding: 24px;
+  padding: 1rem;
 
   background-color: ${theme.colors.white};
 
