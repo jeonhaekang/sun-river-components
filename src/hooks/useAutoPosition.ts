@@ -2,8 +2,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Position, Translate } from "../utils";
 
-const DEFAULT_GAP = 10;
-
 const INIT_POSITION: Position = {
   top: "auto",
   right: "auto",
@@ -19,11 +17,13 @@ const INIT_TRANSLATE: Translate = {
 export const useAutoPosition = ({
   direction,
   anchor,
-  trigger
+  trigger,
+  gap = 10
 }: {
   direction: "top" | "bottom";
   anchor: "left" | "center" | "right";
   trigger: boolean;
+  gap?: number;
 }) => {
   const [position, setPosition] = useState(INIT_POSITION);
   const [shiftPosition, setShiftPosition] = useState(INIT_TRANSLATE);
@@ -40,9 +40,9 @@ export const useAutoPosition = ({
     // position logic
     const _position = { ...INIT_POSITION };
 
-    const isTopOver = anchorRect.top < targetRect.height + DEFAULT_GAP;
+    const isTopOver = anchorRect.top < targetRect.height + gap;
     const isBottomOver =
-      window.innerHeight - anchorRect.bottom < targetRect.height + DEFAULT_GAP;
+      window.innerHeight - anchorRect.bottom < targetRect.height + gap;
 
     let _direction = "bottom";
     switch (direction) {
@@ -56,10 +56,10 @@ export const useAutoPosition = ({
 
     switch (_direction) {
       case "top":
-        _position.top = anchorRect.top - targetRect.height - DEFAULT_GAP;
+        _position.top = anchorRect.top - targetRect.height - gap;
         break;
       default:
-        _position.top = anchorRect.bottom + DEFAULT_GAP;
+        _position.top = anchorRect.bottom + gap;
     }
 
     switch (anchor) {
@@ -113,7 +113,7 @@ export const useAutoPosition = ({
     }
 
     setShiftPosition({ x });
-  }, [anchor, direction]);
+  }, [anchor, direction, gap]);
 
   useEffect(() => {
     if (trigger) {

@@ -49,6 +49,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     label: "tooltip",
+    gap: 10,
     children: <Button>tooltip</Button>,
     ...TOOLTIP_DEFAULT
   }
