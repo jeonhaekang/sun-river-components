@@ -1,15 +1,18 @@
+import { forwardRef } from "react";
 import * as Styled from "./Switch.styles";
 import { SwitchProps } from "./Switch.types";
 
-export const Switch = ({ color, ...props }: SwitchProps) => {
-  const styleProps = {
-    color
-  };
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
+  ({ color, ...props }, ref) => {
+    const styleProps = {
+      color
+    };
 
-  const mergedProps = {
-    ...styleProps,
-    ...props
-  };
+    const mergedProps = {
+      ...styleProps,
+      ...props
+    };
 
-  return <Styled.CheckBox type="checkbox" {...mergedProps} />;
-};
+    return <Styled.CheckBox ref={ref} type="checkbox" {...mergedProps} />;
+  }
+);

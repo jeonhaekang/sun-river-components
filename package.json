@@ -1,6 +1,6 @@
 {
   "name": "@sun-river/components",
-  "version": "0.3.11",
+  "version": "0.3.16",
   "description": "react components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
