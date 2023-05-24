@@ -15,6 +15,8 @@ export const useClickAway = (
 
   useEffect(() => {
     const onClickAway = (e: Event) => {
+      e.stopPropagation();
+
       if (ref.current && !ref.current.contains(e.target as Node)) {
         _callback.current(e);
       }
