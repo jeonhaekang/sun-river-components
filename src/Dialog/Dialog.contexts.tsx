@@ -10,23 +10,28 @@ import {
 } from "react";
 
 const DialogContext = createContext<{
-  showDialog(dialogId: number, dialog: ReactNode): void;
-  hideDialog(dialogId: number): void;
+  showDialog(dialogId: number | string, dialog: ReactNode): void;
+  hideDialog(dialogId: number | string): void;
 } | null>(null);
 
 export const DialogProvider = ({ children }: PropsWithChildren) => {
-  const [dialogs, setDialogs] = useState<Map<number, ReactNode>>(new Map());
+  const [dialogs, setDialogs] = useState<Map<number | string, ReactNode>>(
+    new Map()
+  );
 
-  const showDialog = useCallback((dialogId: number, dialog: ReactNode) => {
-    setDialogs(dialogs => {
-      const _dialogs = new Map(dialogs);
-      _dialogs.set(dialogId, dialog);
+  const showDialog = useCallback(
+    (dialogId: number | string, dialog: ReactNode) => {
+      setDialogs(dialogs => {
+        const _dialogs = new Map(dialogs);
+        _dialogs.set(dialogId, dialog);
 
-      return _dialogs;
-    });
-  }, []);
+        return _dialogs;
+      });
+    },
+    []
+  );
 
-  const hideDialog = useCallback((dialogId: number) => {
+  const hideDialog = useCallback((dialogId: number | string) => {
     setDialogs(dialogs => {
       const _dialogs = new Map(dialogs);
       _dialogs.delete(dialogId);
